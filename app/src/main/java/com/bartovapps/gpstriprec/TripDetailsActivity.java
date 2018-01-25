@@ -61,6 +61,7 @@ import java.util.ArrayList;
 
 public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener, OnMapReadyCallback,
         GoogleMap.OnMapLoadedCallback {
+    private static final String TAG = "TAG_TripDetailsActivity";
     private static final String GOOGLE_EARTH_PACKAGE = "com.google.earth";
     private static final String GOOGLE_EARTH_STORE_URI = "https://play.google.com/store/apps/details?id=com.google.earth";
     private static final String GOOGLE_EARTH_KML_ARG = "application/vnd.googleearth.kml+xml";
@@ -130,7 +131,7 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
         super.onCreate(savedInstanceState);
 //		Log.i(LOG_TAG, "onCreate called");
         setContentView(R.layout.trip_details_activity);
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar = findViewById(R.id.app_bar);
         try {
             setSupportActionBar(toolbar);
         } catch (Throwable t) {
@@ -141,7 +142,7 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_back);
-        locations = new ArrayList<LatLng>();
+        locations = new ArrayList<>();
         settings = PreferenceManager.getDefaultSharedPreferences(context);
 
         updatePreferences();
@@ -192,7 +193,7 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
     @Override
     protected void onResume() {
         super.onResume();
-//        Log.i(LOG_TAG, "onResume called");
+        Log.i(TAG, "onResume:");
 
         if (Utils.isFileExists(mapKmlFileName)) {
             parser = new KmlParser(mapKmlFileName);
@@ -203,8 +204,6 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
         }
         if (trip != null) {
             updateDisplay();
-        } else {
-//            Log.i(LOG_TAG, "Trip is null");
         }
     }
 
@@ -316,12 +315,12 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
 
     @Override
     public void onMapLoaded() {
-        MapOverlayTask task = new MapOverlayTask();
-        task.execute(mapKmlFileName);
+        Log.i(TAG, "onMapLoaded: ");
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Log.i(TAG, "onMapReady: ");
         mMap = googleMap;
         mMap.setOnMapLoadedCallback(mapLoaded);
         mMap.setOnMarkerClickListener(this);
@@ -330,7 +329,8 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
         mapHelper = new MapHelper(mMap, GpsRecMain.CAM_INIT_ZOOM, lineColor, mapType,
                 handler, this);
         mapHelper.setLineWidth(lineWidth);
-
+        MapOverlayTask task = new MapOverlayTask();
+        task.execute(mapKmlFileName);
 
     }
 
@@ -352,10 +352,6 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
 
         @Override
         protected void onPostExecute(String result) {
-            try {
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
 
         @Override
@@ -464,18 +460,18 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
 
 
     private void initDisplayComponents() {
-        tvWhen = (TextView) findViewById(R.id.tvWhen);
-        tvDuration = (TextView) findViewById(R.id.tvDurationDetails);
-        tvAvSpeed = (TextView) findViewById(R.id.tvAveSpeed);
-        tvMaxSpeed = (TextView) findViewById(R.id.tvMaxSpeed);
-        tvDistance = (TextView) findViewById(R.id.tvDistanceDetails);
-        tvFrom = (TextView) findViewById(R.id.tvFrom);
-        tvTo = (TextView) findViewById(R.id.tvTo);
-        tvMaxAltitude = (TextView) findViewById(R.id.tvMaxAltitude);
-        tvAverageMoveSpeed = (TextView) findViewById(R.id.tvAverageMoveSpeed);
-        tvMoveTime = (TextView) findViewById(R.id.tvMoveTime);
-        tvStopTime = (TextView) findViewById(R.id.tvStopTime);
-        tvTripDetailsHead = (TextView) findViewById(R.id.tvTripDetailsHead);
+        tvWhen =  findViewById(R.id.tvWhen);
+        tvDuration =  findViewById(R.id.tvDurationDetails);
+        tvAvSpeed =  findViewById(R.id.tvAveSpeed);
+        tvMaxSpeed =  findViewById(R.id.tvMaxSpeed);
+        tvDistance =  findViewById(R.id.tvDistanceDetails);
+        tvFrom =  findViewById(R.id.tvFrom);
+        tvTo =  findViewById(R.id.tvTo);
+        tvMaxAltitude =  findViewById(R.id.tvMaxAltitude);
+        tvAverageMoveSpeed =  findViewById(R.id.tvAverageMoveSpeed);
+        tvMoveTime =  findViewById(R.id.tvMoveTime);
+        tvStopTime =  findViewById(R.id.tvStopTime);
+        tvTripDetailsHead =  findViewById(R.id.tvTripDetailsHead);
     }
 
     private void getTripDetails() {
@@ -527,9 +523,9 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
         tvWhen.setText("" + date);
         timeDisplayer.displayTime(tvDuration, duration);
         distanceDisplayer.displayData(tvDistance, distance);
-        speedDisplayer.displayData(tvAvSpeed, (double) averageSpeed);
-        speedDisplayer.displayData(tvMaxSpeed, (double) maxSpeed);
-        altitudeDisplayer.displayData(tvMaxAltitude, (double) maxAltitude);
+        speedDisplayer.displayData(tvAvSpeed,  averageSpeed);
+        speedDisplayer.displayData(tvMaxSpeed,  maxSpeed);
+        altitudeDisplayer.displayData(tvMaxAltitude, maxAltitude);
         timeDisplayer.displayTime(tvMoveTime, moveTime);
         timeDisplayer.displayTime(tvStopTime, stopTime);
         tvTripDetailsHead.setText(tripTitle);
@@ -730,7 +726,7 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
             String selection = MediaStore.MediaColumns.DATA + " = ?";
             String[] args = {path};
             Cursor c = context.getContentResolver().query(filesUri, projection, selection, args, null);
-            if (c.getCount() == 1) {
+            if (c != null && c.getCount() == 1) {
 //                Log.i(LOG_TAG, "item already exists! getting the already exists uri...");
                 c.moveToFirst();
                 long rowId = c.getLong(c.getColumnIndex(MediaStore.MediaColumns._ID));
@@ -790,7 +786,7 @@ public class TripDetailsActivity extends AppCompatActivity implements GoogleMap.
 
 
             Cursor c = context.getContentResolver().query(filesUri, projection, selection, args, null);
-            if (c.getCount() == 1) {
+            if (c != null && c.getCount() == 1) {
 //                Log.i(LOG_TAG, "item already exists! getting the already exists uri...");
                 c.moveToFirst();
                 long rowId = c.getLong(c.getColumnIndex(MediaStore.MediaColumns._ID));

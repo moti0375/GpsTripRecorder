@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GPS旅遊記錄</string>
+    <string name="action_settings">設置</string>
+    <string name="SpeedHeader">速度</string>
+    <string name="BearingHeader">軸承</string>
+    <string name="DistanceHeader">距離</string>
+    <string name="LatitudeHeader">緯度</string>
+    <string name="LongitudeHeader">經度</string>
+    <string name="ClearMeas">CLEAR MEAS</string>
+    <string name="Close">關閉</string>
+    <string name="NewTrip">新行程</string>
+    <string name="StopTrip">停機脫扣</string>
+	<string name="SavingTrip">保存您的旅行.. 請稍候</string>    
+	<string name="noMusicPlayer">音樂播放器無法找到</string>    
+	<string name="updateGPlayServices">更新谷歌播放服務，然後再試一次...</string>    
+	<string name="ServicesDisconnected">無法連接谷歌播放服務...</string>    
+	<string name="UnableInitMap">無法初始化地圖...</string>    
+	<string name="StopAndExit">停止錄音並退出？</string>    
+    <string name="TripLoaded">旅行上傳成功</string>    
+    <string name="ContinueLoadedTrip">續上傳行程？</string>    
+    						
+    <string name="SAVE_TRIP">節省出行</string>    
+	<string name="SaveDialog">保存這個旅遊？</string>    
+	<string name="DELETE_TRIP">刪除人次</string>    
+	<string name="DeleteDialog">刪除選定的旅行？</string>    
+	
+	<string name="NoGPSHead">GPS禁用</string>    
+	<string name="NoGPSBody">GPS禁用，您想現在激活了嗎？</string>    
+
+	<string name="WaitForGPS">等待GPS來獲取你的位置</string>    
+	<string name="LocationFounded">位置已經找到了！你可以開始走路，跑步或開車！一路平安！</string>    
+	<string name="Goodbye">再見..</string>    
+		
+    <!-- Trip Manager -->
+	<string name="NotEnoughData">沒有足夠的數據之旅，將不被保存..</string>    
+
+			
+	<string name="YES">是</string>    
+	<string name="NO">無</string>    
+	
+		<!-- Settings onItemSelection Strings -->
+    <string name="RecordedTrips">記錄旅行</string>
+    <string name="GoogleAggreement">谷歌地圖執照</string>
+    <string name="AppSettings">設置</string>
+    <string name="StartMusicPlayer">音樂播放器</string>
+    
+    
+    <!-- Settings strings -->
+    <string name="UnitsCategory">單位</string>
+    <string name="UnitsPrefTitle">速度和距離</string>
+    <string name="UnitsPrefSummary">將要顯示的單元</string>
+    
+    <string name="AltitudePrefTitle">高度單位</string>
+    <string name="AltitudeUnitsPrefSummary">度將要顯示的單元</string>
+    
+    <string name="MapCategory">地圖選項</string>
+    <string name="LineColorTitle">地圖線顏色</string>
+    <string name="LineColorSummary">地圖折線的顏色</string>
+    
+    <string name="ZoomTitle">地圖縮放</string>
+    <string name="ZoomSummary">地圖縮放攝像機</string>
+    
+    <string name="LineWidthTitle">地圖折線寬度</string>
+    <string name="LineWidthSummary">地圖折線的寬度</string>
+
+    <string name="SavingOptionsCategory">旅節約</string>
+    <string name="AutoSaveSummary"></string>
+    <string name="AutoSaveTitle">旅自動節約</string>
+
+ 
+    <!-- Recorded Trip Tabs Activity -->
+    <string name="RecordedDetailedTitle">旅遊詳情</string>    
+    <string name="When">當</string>    
+    <string name="Duration">為期</string>    
+    <string name="Distance">距离</string>    
+    <string name="AvSpeed">平均速度</string>    
+    <string name="MaxSpeed">最高車速</string>    
+    <string name="From">本源</string>    
+    <string name="To">目的地</string>    
+    <string name="NoGoogleEarth">谷歌地球是不是你的設備上安裝\n你想現在就安裝嗎？</string>    
+    
+   <!-- Recorded Trip Map Tab Activity -->
+    <string name="MapUnavailable">找不到保存的行程地圖</string>
+    <string name="displaying_trip">顯示你的路線，請稍候...</string>
+
+    
+    <!-- Recorded Trip Details Tabs Activity -->
+    <string name="UnavailableData">這個數據是不可用的.. </string>    
+
+     <!-- Recorded Trips List Activity -->
+    <string name="NoTripsHint"> 沒有車次...</string>    
+    <string name="TripTitleDialogTitle">旅行標題編輯</string>    
+    <string name="EnterTripTitle">進入名軌道</string>    
+    <string name="Done">做</string>    
+    <string name="Cancel">取消</string>    
+    <string name="Trip">旅遊</string>    
+    <string name="Trips">旅遊</string>    
+    <string name="NoTitleHint">無標題...</string>    
+    <string name="MergeTrips">合併這些旅行？</string>    
+    <string name="MergeingTrips">加盟之遊中，請稍候 ...</string>    
+    <string name="ContinuousMergerTrips">合併後的車次，必須是連續的，沒有超過300米</string>    
+    <string name="Completed">做</string>    
+    <string name="UploadTrip">上傳此行？</string>    
+    
+    <!-- License Activity -->
+    <string name="GooglePlayServicesUnavailable">谷歌播放服務未在此設備上安裝</string>
+    <string name="GooglePlayError">谷歌播放店無法找到</string>
+    <string name="TripSaved">旅此成功保存</string>
+    <string name="AvMoveSpeed">的平均移動速度</string>
+    <string name="MaxAltitudeHeader">最大海拔高度</string>
+    <string name="MovementTime">運動時間</string>
+    <string name="StandingTime">停止時間</string>
+    <string name="ExportTrips">Export Trips</string>
+    <string name="ImportTrips">Import Trips</string>
+    <string name="ExportTripsDialogMessage">Export Trips ?</string>
+    <string name="ImportTripsDialogMessage">Import trips?</string>
+    <string name="Recording">录音...</string>
+    <string name="StillRecording">GPS旅遊記錄是記錄</string>
+    <string name="GpsMustEnabled">GPS必須啟用，行動取消</string>
+    <string name="Canceled">操作已取消</string>
+    <string name="upload_while_recording">無法上載之而录音</string>
+    <string name="share_map_image">分享地圖圖像</string>
+    <string name="share_kml">分享KML文件</string>
+    <string name="error_access_attachment">訪問文件時出錯</string>
+    <string name="unable_to_open_kml">無法加載文件映射或文件不支持！</string>
+    <string name="title_activity_gps_trip_rec_gallery">畫廊之</string>
+
+
+</resources>

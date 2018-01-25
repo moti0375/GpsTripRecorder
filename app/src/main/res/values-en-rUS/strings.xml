@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GPS Trip Recorder</string>
+    <string name="action_settings">Settings</string>
+    <string name="SpeedHeader">SPEED</string>
+    <string name="BearingHeader">BEARING</string>
+    <string name="DistanceHeader">DISTANCE</string>
+    <string name="LatitudeHeader">LATITUDE</string>
+    <string name="LongitudeHeader">LONGITUDE</string>
+    <string name="ClearMeas">CLEAR MEAS</string>
+    <string name="Close">CLOSE</string>
+    <string name="NewTrip">NEW TRIP</string>
+    <string name="StopTrip">STOP TRIP</string>
+	<string name="SAVE_TRIP">Trip Saving</string>    
+	<string name="SaveDialog">Save this trip?</string>    
+	<string name="SavingTrip">Saving trip.. please wait</string>    
+	<string name="noMusicPlayer">Music player cannot be found</string>    
+	<string name="updateGPlayServices">Update Google Play services and try again...</string>    
+	<string name="ServicesDisconnected">Unable to connect Google Play services...</string>    
+	<string name="UnableInitMap">Unable to initialize map...</string>    
+	<string name="StopAndExit">Stop recording and exit?</string>    
+    <string name="TripLoaded">Trip loaded</string>    
+    <string name="ContinueLoadedTrip">Continue the loaded trip?</string>    
+    							
+	<string name="DELETE_TRIP">Trips Delete</string>    
+	<string name="DeleteDialog">Delete selected trips?</string>    
+	
+	<string name="NoGPSHead">GPS disabled</string>    
+	<string name="NoGPSBody">GPS is disabled, would you like to activate it now?</string>    
+
+	<string name="WaitForGPS">Wait for GPS to acquire your location</string>    
+	<string name="LocationFounded">Location has been found! You may start walking, running or driving! Have a safe trip!</string>    
+	<string name="Goodbye">Goodbye..</string>    
+		
+    <!-- Trip Manager -->
+	<string name="NotEnoughData">Not enough trip data, trip will not saved..</string>    
+				
+			
+	<string name="YES">Yes</string>    
+	<string name="NO">No</string>    
+	
+		<!-- Settings onItemSelection Strings -->
+    <string name="RecordedTrips">Recorded Trips</string>
+    <string name="GoogleAggreement">GoogleMaps Lic</string>
+    <string name="AppSettings">Settings</string>
+    <string name="StartMusicPlayer">Music Player</string>
+    
+    
+    <!-- Settings strings -->
+    <string name="UnitsCategory">Units</string>
+    <string name="UnitsPrefTitle">Speed and distance</string>
+    <string name="UnitsPrefSummary">Units which will be displayed</string>
+    
+    <string name="AltitudePrefTitle">Altitude Units</string>
+    <string name="AltitudeUnitsPrefSummary">Altitude Units which will be displayed</string>
+    
+    <string name="MapCategory">Map Options</string>
+    <string name="LineColorTitle">Map Line Color</string>
+    <string name="LineColorSummary">The color of the map polyline</string>
+    
+    <string name="ZoomTitle">Map Zoom</string>
+    <string name="ZoomSummary">Map Camera Zoom</string>
+    
+    <string name="LineWidthTitle">Map Polyline Width</string>
+    <string name="LineWidthSummary">The width of the map polyline</string>
+
+    <string name="SavingOptionsCategory">Trip save options</string>
+    <string name="AutoSaveSummary">Trip auto save options</string>
+    <string name="AutoSaveTitle">Trip auto save</string>
+
+ 
+    <!-- Recorded Trip Tabs Activity -->
+    <string name="RecordedDetailedTitle">Trip Details</string>    
+    <string name="When">When</string>    
+    <string name="Duration">Duration</string>    
+    <string name="Distance">Distance</string>    
+    <string name="AvSpeed">Av\' Speed</string>    
+    <string name="MaxSpeed">Max Speed</string>    
+    <string name="From">Origin</string>    
+    <string name="To">Destination</string>    
+    <string name="NoGoogleEarth">Google Earth is not installed on your device\nWould you like to install it now?</string>
+    <string name="GooglePlayError">Google Play store cannot be found or started, Install Google Earth and try again!</string>
+
+
+
+    <!-- Recorded Trip Map Tab Activity -->
+    <string name="MapUnavailable">Saved trip map cannot be found</string>
+    <string name="displaying_trip">Displaying trip map, Please wait...</string>
+
+
+    <!-- Recorded Trip Details Tabs Activity -->
+    <string name="UnavailableData">This data is unavailable.. </string>    
+
+     <!-- Recorded Trips List Activity -->
+    <string name="NoTripsHint">There are no recorded trips yet...</string>    
+    <string name="TripTitleDialogTitle">Trip Title Edit</string>    
+    <string name="EnterTripTitle">Type trip title</string>    
+    <string name="Done">Done</string>    
+    <string name="Cancel">Cancel</string>    
+    <string name="Trip">Trip</string>    
+    <string name="Trips">Trips</string>    
+    <string name="NoTitleHint">No Title...</string>    
+    <string name="MergeTrips">Merge these trips?</string>    
+    <string name="MergeingTrips">Mergeing trips, please wait...</string>    
+    <string name="ContinuousMergerTrips">Merged trips must be continuous with no more than 300 meters</string>    
+    <string name="Completed">Done</string>    
+    <string name="UploadTrip">Upload this trip?</string>    
+    
+     <!-- License Activity -->
+    <string name="GooglePlayServicesUnavailable">Google Play services is not installed on this device</string>
+    <string name="MaxAltitudeHeader">Max Altitude</string>
+    <string name="AvMoveSpeed">Av\' Speed on the move</string>
+    <string name="MovementTime">Movement Time</string>
+    <string name="StandingTime">Stand Time</string>
+    <string name="TripSaved">Trip saved successfully</string>
+    <string name="ExportTrips">Export Trips</string>
+    <string name="ImportTrips">Import Trips</string>
+    <string name="ExportTripsDialogMessage">Export Trips ?</string>
+    <string name="ImportTripsDialogMessage">Import trips?</string>
+    <string name="Recording">Recording...</string>
+    <string name="StillRecording">GPS Trip Recorder still recording...</string>
+    <string name="GpsMustEnabled">GPS must be enabled for recording, Action canceled</string>
+    <string name="Canceled">Action canceled!</string>
+    <string name="upload_while_recording">Unable to upload a trip during recording</string>
+    <string name="share_map_image">Share map image</string>
+    <string name="share_kml">Share trip KML file</string>
+    <string name="error_access_attachment">Error access attachment</string>
+    <string name="unable_to_open_kml">Unable to load file map or file not supported!</string>
+    <string name="title_activity_gps_trip_rec_gallery">Trip Gallery</string>
+
+
+</resources>

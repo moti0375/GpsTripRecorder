@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="AvMoveSpeed">Av\' Move Speed</string>
+    <string name="MovementTime">Movement Time</string>
+    <string name="StandingTime">Stand Time</string>
+</resources>

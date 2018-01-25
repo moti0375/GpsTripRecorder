@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hebrewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/listItemDark"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTripDetailsHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/RecordedDetailedTitle"
+        android:ellipsize="end"
+        android:singleLine="true"
+        style="@style/detail_text_view" />
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvWhen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view" />
+            <TextView
+                android:id="@+id/tvWhenHeader"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/When"
+                style="@style/detail_right_text_view" />
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+          <TextView
+                android:id="@+id/tvDurationDetails"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view" />
+
+            <TextView
+                android:id="@+id/tvDurationHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_right_text_view"
+                android:text="@string/Duration" />
+
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+          <TextView
+                android:id="@+id/tvMoveTime"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+
+            <TextView
+                android:id="@+id/tvMoveTimeHeader"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_right_text_view"
+                android:text="@string/MovementTime" />
+
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+          <TextView
+                android:id="@+id/tvStopTime"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view" />
+
+            <TextView
+                android:id="@+id/tvStopTimeHeader"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/StandingTime"
+                android:gravity="right"
+                style="@style/detail_right_text_view" />
+
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDistanceDetails"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view" />
+
+            <TextView
+                android:id="@+id/tvDistanceHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Distance"
+                style="@style/detail_right_text_view"/>
+
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAveSpeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+
+            <TextView
+                android:id="@+id/tvSpeedHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/AvSpeed"
+                style="@style/detail_right_text_view"/>
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+
+          <TextView
+                android:id="@+id/tvAverageMoveSpeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+            <TextView
+                android:id="@+id/tvAvMoveSpeedHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/AvMoveSpeed"
+                style="@style/detail_right_text_view"/>
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+          <TextView
+                android:id="@+id/tvMaxSpeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+            <TextView
+                android:id="@+id/tvMaxSpeedHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/MaxSpeed"
+                style="@style/detail_right_text_view"/>
+
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMaxAltitude"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+            <TextView
+                android:id="@+id/tvMaxAltHeader"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/MaxAltitudeHeader"
+                style="@style/detail_right_text_view"/>
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+          <TextView
+                android:id="@+id/tvFrom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+
+            <TextView
+                android:id="@+id/tvFromHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/From"
+                style="@style/detail_right_text_view"/>
+        </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/detail_left_text_view"/>
+            <TextView
+                android:id="@+id/tvToHead"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/To"
+                style="@style/detail_right_text_view"/>
+
+         </LinearLayout>
+      </LinearLayout>
+
+  </ScrollView>
+
+</LinearLayout>

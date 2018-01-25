@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+   <Style id="lineStyle">
+      <LineStyle>
+        <width>15</width>
+        <color>ff0000ff</color>
+      </LineStyle>
+   </Style>
+   <Style id = "startPoint">
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+        </Icon>
+        <color>de00ff00</color>
+     </IconStyle>
+     </Style>
+   <Style id = "endPoint">
+     <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+        </Icon>
+        <color>de0000ff</color>
+     </IconStyle>
+    </Style>
+  <Placemark id="1">
+    <name>StartPoint</name>
+    <description>Location 1</description>
+   <styleUrl>#startPoint</styleUrl>
+   <Point>
+      <coordinates>34.823343,31.965763</coordinates>
+    </Point>
+  </Placemark>
+ <Placemark id="2">
+    <name>EndPoint</name>
+    <styleUrl>#endPoint</styleUrl>
+    <description>Location 2</description>
+    <Point>
+      <coordinates>34.812272,31.963677</coordinates>
+    </Point>
+  </Placemark>
+ <Placemark id="route">
+      <name>Path</name>
+      <description>Transparent green wall with yellow outlines</description>
+      <styleUrl>#lineStyle</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <coordinates>34.823343,31.965763
+                     34.812272,31.963677
+        </coordinates>
+      </LineString>
+    </Placemark>
+</Document>
+</kml>

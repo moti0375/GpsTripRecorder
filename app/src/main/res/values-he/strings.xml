@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">מקליט GPS</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="Close">סגור</string>
+    <string name="NewTrip">הקלטה חדשה</string>
+    <string name="StopTrip">עצור הקלטה</string>
+	<string name="SAVE_TRIP">שמירת מסלול</string>    
+	<string name="SaveDialog">לשמור מסלול זה?</string>    
+	<string name="SavingTrip">שומר את המסלול, נא להמתין</string>    
+	<string name="NoGPSHead">GPS אינו פעיל</string>    
+	<string name="NoGPSBody">התקן ה GPS אינו פעיל, האם להפעיל כעת?</string>    
+	<string name="DELETE_TRIP">מחיקת מסלולים</string>    
+	<string name="noMusicPlayer">לא נמצא נגן מוזיקה</string>    
+	<string name="updateGPlayServices">יש לעדכן את Google Play services ולנסות שוב...</string>
+    <string name="ServicesDisconnected">לא ניתן להתחבר לשירותי Google Play, נסה שנית...</string>
+	<string name="UnableInitMap">לא ניתן לאתחל המפה...</string>    
+	<string name="StopAndExit">האם לסגור באמצע ההקלטה?</string>    
+    <string name="TripLoaded">מסלול הועלה בהלצחה</string>    
+    <string name="ContinueLoadedTrip">להמשיך המסלול שהועלה?</string>    
+    								
+	<string name="YES">כן</string>    
+	<string name="NO">לא</string>    
+
+	<string name="WaitForGPS">המתן למציאת מיקומך ע״י GPS...</string>    
+	<string name="LocationFounded">מיקומך נמצא, ניתן להתחיל במסלול</string>    
+	<string name="Goodbye">להתראות...</string>    
+
+    <!-- Trip Manager -->
+	<string name="NotEnoughData">אין מספיק נתונים, המסלול לא ישמר..</string>    
+						
+    <!-- Settings onItemSelection Strings -->
+    <string name="RecordedTrips">המסלולים שלי</string>
+    <string name="GoogleAggreement">הסכם שימוש גוגל</string>
+    <string name="AppSettings">הגדרות</string>
+    <string name="StartMusicPlayer">נגן מוזיקה</string>
+    
+    
+    <!-- Settings strings -->
+    <string name="UnitsCategory">יחידות מדידה</string>
+    <string name="UnitsPrefTitle">מהירות ומרחק</string>
+    <string name="UnitsPrefSummary">היחידות בהן יוצגו נתוני מהירות ומרחק</string>
+    
+    <string name="AltitudePrefTitle">גובה</string>
+    <string name="AltitudeUnitsPrefSummary">היחידות בהן יוצגו נתוני הגובה</string>
+    
+    <string name="MapCategory">הגדרות מפה</string>
+    <string name="LineColorTitle">צבע מסלול</string>
+    <string name="LineColorSummary">הצבע בו יוצג המסלול</string>
+    
+    <string name="ZoomTitle">זום</string>
+    <string name="ZoomSummary">זום מצלמת מפה</string>
+    
+    <string name="LineWidthTitle">רוחב קו מסלול</string>
+    <string name="LineWidthSummary">רוחב של קו המסלול</string>
+
+    <string name="SavingOptionsCategory">אפשרויות שמירת מסלול</string>
+    <string name="AutoSaveSummary">אפשרויות שמירת מסלול אוטומטי</string>
+    <string name="AutoSaveTitle">שמירת מסלול אוטומטי</string>
+
+        <!-- Recorded Trip Tabs Activity -->
+    <string name="RecordedDetailedTitle">נתוני מסלול</string>    
+    <string name="When">תאריך</string>    
+    <string name="Duration">משך זמן</string>    
+    <string name="Distance">מרחק</string>    
+    <string name="AvSpeed">מה׳ ממוצעת</string>    
+    <string name="MaxSpeed">מה׳ מקסימלית</string>    
+    <string name="From">מוצא</string>    
+    <string name="To">יעד</string>    
+
+   <!-- Recorded Trip Map Tab Activity -->
+    <string name="MapUnavailable">קובץ מפה אינו נמצא...</string>
+    <string name="displaying_trip">מציג את המסלול שלך, אנא המתן...</string>
+
+    
+     <!-- Recorded Trip Details Tabs Activity -->
+    <string name="UnavailableData">המידע אינו זמין...</string>    
+
+     <!-- Recorded Trips List Activity -->
+    <string name="NoTripsHint">אין הקלטות עדיין...</string>    
+    <string name="TripTitleDialogTitle">עריכת שם מסלול</string>    
+    <string name="EnterTripTitle">שם המסלול</string>    
+    <string name="Done">סיום</string>    
+    <string name="Cancel">בטל</string>    
+    <string name="Trip">מסלול</string>    
+    <string name="Trips">מסלולים</string>    
+    <string name="NoTitleHint">מסלול ללא שם...</string>    
+	<string name="DeleteDialog">למחוק מסלולים נבחרים?</string>    
+    <string name="MergeTrips">לאחד מסלולים אלו?</string>    
+    <string name="MergeingTrips">מאחד מסלולים, נא להמתין...</string>    
+    <string name="ContinuousMergerTrips">יש לבחור מסלולים רצופים בעד 300 מטר</string>    
+    <string name="Completed">בוצע</string>    
+    <string name="UploadTrip">להעלות מסלול זה?</string>    
+    
+       <!-- License Activity -->
+    <string name="GooglePlayServicesUnavailable">שירותי Google Play אינם מותקנים במכשיר זה</string>
+    <string name="GooglePlayError">לא היה ניתן לפתוח את חנות Google Play. התקן אפליקצית Google Earth ונסה שנית!</string>
+    <string name="MaxAltitudeHeader">גובה מקסימלי</string>
+    <string name="AvMoveSpeed">מהירות תנועה ממוצעת</string>
+    <string name="MovementTime">זמן תנועה</string>
+    <string name="StandingTime">זמן מנוחה</string>
+    <string name="NoGoogleEarth">אפליקצית Google Earth אינה מותקנת במכשירך\nהאם ברצונך להתקינה כעת?</string>
+    <string name="TripSaved">המסלול נשמר בהצלחה</string>
+    <string name="ExportTrips">Export Trips</string>
+    <string name="ImportTrips">Import Trips</string>
+    <string name="ExportTripsDialogMessage">Export Trips ?</string>
+    <string name="ImportTripsDialogMessage">Import trips?</string>
+    <string name="Recording">מקליט...</string>
+    <string name="StillRecording">מקליט GPS עדיין מקליט...</string>
+    <string name="GpsMustEnabled">GPS Mיש לאפשר GPS לצורך הקלטה. הפעולה בוטלה</string>
+    <string name="Canceled">הפעולה בוטלה!</string>
+    <string name="upload_while_recording">לא ניתן להעלות מסלול תוך כדי הקלטה</string>
+    <string name="share_map_image">שתף תמונת מפה</string>
+    <string name="share_kml">שתף קובץ KML</string>
+    <string name="error_access_attachment">שגיאה בגישה לקובץ</string>
+    <string name="unable_to_open_kml">לא ניתן לקרוא קובץ מפה או קובץ לא נתמך</string>
+    <string name="title_activity_gps_trip_rec_gallery">גלריית המסלול שלי</string>
+
+
+</resources>
+

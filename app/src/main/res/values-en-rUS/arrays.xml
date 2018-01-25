@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="units_enteries">
+        <item name="Metric">m/Km</item>
+        <item name="Milage">Miles</item>
+        </string-array>
+
+    <string-array name="altitude_units_enteries">
+        <item name="Feet">Feet</item>
+        <item name="Metric">Metric</item>
+    </string-array>
+    
+    <string-array name="line_color_enteries">
+        <item name="Red">Red</item>
+        <item name="Green">Green</item>
+        <item name="Yellow">Yellow</item>
+        <item name="Blue">Blue</item>
+     </string-array>
+     
+    <string-array name="line_width_enteries">
+        <item name="Thin">Thin</item>
+        <item name="Thick">Thick</item>
+        <item name="Thicker">Thicker</item>
+     </string-array>
+
+    <string-array name="AutoSaveEnteries">
+        <item name="true">Automatic save trip when done</item>
+        <item name="false">Ask me to save trip</item>
+    </string-array>
+
+    <string-array name="zoom_enteries">
+        <item name="8">State</item>
+        <item name="12">City</item>
+        <item name="15">Block</item>
+        <item name="20">Street</item>
+    </string-array>
+</resources>

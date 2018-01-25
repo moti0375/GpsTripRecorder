@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="units_enteries">
+        <item name="Metric">מטר/קמ״ש</item>
+        <item name="Milage">מייל/מיי״ש</item>
+        </string-array>
+     <string-array name="altitude_units_enteries">
+        <item name="Feet">רגל</item>
+        <item name="Metric">מטרים</item>
+    </string-array>
+
+    <string-array name="line_color_enteries">
+        <item name="Red">אדום</item>
+        <item name="Green">ירוק</item>
+        <item name="Yellow">צהוב</item>
+        <item name="Blue">כחול</item>
+     </string-array>
+     
+    <string-array name="line_width_enteries">
+        <item name="Thin">דק</item>
+        <item name="Thick">עבה</item>
+        <item name="Thicker">עבה מאד</item>
+     </string-array>
+    <string-array name="AutoSaveEnteries">
+        <item name="true">שמירה אוטומטית</item>
+        <item name="false">שאל אותי האם לשמור המסלול</item>
+    </string-array>
+
+    <string-array name="zoom_enteries">
+        <item name="8">מדינה</item>
+        <item name="12">עיר</item>
+        <item name="15">שכונה</item>
+        <item name="20">רחוב</item>
+    </string-array>
+</resources>

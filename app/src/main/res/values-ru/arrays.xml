@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="units_enteries">
+        <item name="Metric">км/ч</item>
+        <item name="Milage">миль/ч</item>
+        </string-array>
+
+    <string-array name="altitude_units_enteries">
+        <item name="Feet">стопы</item>
+        <item name="Metric">метрика</item>
+    </string-array>
+    
+    <string-array name="line_color_enteries">
+        <item name="Red">красный</item>
+        <item name="Green">зеленый</item>
+        <item name="Yellow">желтый</item>
+        <item name="Blue">синий</item>
+     </string-array>
+     
+    <string-array name="line_width_enteries">
+        <item name="Thin">тонкий</item>
+        <item name="Thick">толстый</item>
+        <item name="Thicker">Веры толщиной</item>
+     </string-array>
+
+    <string-array name="AutoSaveEnteries">
+        <item name="true">Автоматическое сохранение маршрут когда сделано</item>
+        <item name="false">Спросите меня чтобы сохранить маршрутp</item>
+    </string-array>
+
+    <string-array name="zoom_enteries">
+        <item name="8">страна</item>
+        <item name="12">город</item>
+        <item name="15">соседство</item>
+        <item name="20">улица</item>
+    </string-array>
+</resources>

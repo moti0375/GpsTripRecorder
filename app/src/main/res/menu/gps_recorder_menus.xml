@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+   <item
+        android:id="@+id/action_musicPlayer"
+        android:orderInCategory="90"
+        android:icon="@drawable/ic_action_volume_on"
+        android:title="@string/StartMusicPlayer"
+        app:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/action_license"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_action_about"
+        android:title="@string/GoogleAggreement"
+        app:showAsAction="never"/>
+   
+   <item
+        android:id="@+id/action_trips"
+        android:orderInCategory="110"
+        android:icon="@drawable/ic_action_map"
+        android:title="@string/RecordedTrips"
+        app:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/action_settigns"
+        android:orderInCategory="120"
+        android:icon="@drawable/ic_action_settings"
+        android:title="@string/AppSettings"
+        app:showAsAction="always"/>
+  
+ 
+</menu>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Enregistreur de GPS</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="Close">Fermer</string>
+    <string name="NewTrip">Nouveau Trajet</string>
+    <string name="StopTrip">Fin du Trajet</string>
+	<string name="SAVE_TRIP">Enregistrer un trajet</string>    
+	<string name="SaveDialog">Enregistrer ce trajet?</string>    
+	<string name="SavingTrip">Enregistrement de votre trajet.. veuillez patienter</string>    
+	<string name="NoGPSHead">Le GPS est désactivé</string>    
+	<string name="NoGPSBody">GPS désactivé, Voulez-vous l\'activé?</string>    
+	<string name="DELETE_TRIP">Supprimer les trajets</string>    
+	<string name="DeleteDialog">Supprimer ce voyages sélectionnés?</string>    
+	<string name="noMusicPlayer">Lecteur de musique introuvable</string>    
+	<string name="updateGPlayServices">Mise à jour de Google Play services et essayez à nouveau...</string>    
+	<string name="ServicesDisconnected">Impossible de se connecter aux services Google Play...</string>    
+	<string name="UnableInitMap">Impossible d\'initialiser la carte...</string>    
+	<string name="StopAndExit">Arrêter l\'enregistrement et quitter?</string>    
+    <string name="TripLoaded">Trajet téléchargé avec succès</string>    
+    <string name="ContinueLoadedTrip">Continuer le trajet téléchargé?</string>    
+    								
+	<string name="YES">Oui</string>    
+	<string name="NO">Aucun</string>    
+
+	<string name="WaitForGPS">En attente du GPS pour definir votre location</string>    
+	<string name="LocationFounded">Emplacement trouvé! Vous pouvez commencer à marcher, courir ou conduire! Bon voyage!</string>    
+	<string name="Goodbye">Au Revoir...</string>    
+
+    <!-- Trip Manager -->
+	<string name="NotEnoughData">données insuffisantes, trajet pas enregistré</string>    
+	<string name="TripSaved">Trajet enregistré avec succès</string>    
+							
+    <!-- Settings onItemSelection Strings -->
+    <string name="RecordedTrips">Mes Trajet</string>
+    <string name="GoogleAggreement">Conditions d\'utilisation de Google</string>
+    <string name="AppSettings">Paramètres</string>
+    <string name="StartMusicPlayer">Lecteur de musique</string>
+    
+    
+    <!-- Settings strings -->
+    <string name="UnitsCategory">Unités de mesure</string>
+    <string name="UnitsPrefTitle">Vitesse et distance</string>
+    <string name="UnitsPrefSummary">Les unités dans lesquelles les données seront présentées</string>
+    
+    <string name="AltitudePrefTitle">Les unités d\'altitude</string>
+    <string name="AltitudeUnitsPrefSummary">Les d\'altitude unités dans lesquelles les données seront présentées</string>
+    
+    
+    <string name="MapCategory">Paramètres Carte</string>
+    <string name="LineColorTitle">Carte couleur de la ligne</string>
+    <string name="LineColorSummary">La couleur de la carte polyligne</string>
+    
+    <string name="ZoomTitle">Zoom</string>
+    <string name="ZoomSummary">Carte appareil photo zoom</string>
+    
+    <string name="LineWidthTitle">Carte largeur de polyligne</string>
+    <string name="LineWidthSummary">La largeur de la carte polyligne</string>
+
+    <string name="SavingOptionsCategory">Options d\'économie de voyage</string>
+    <string name="AutoSaveSummary">Voyage sauvegarde automatique des options</string>
+    <string name="AutoSaveTitle">Voyage sauvegarde automatique</string>
+
+        <!-- Recorded Trip Tabs Activity -->
+    <string name="RecordedDetailedTitle">Détails Du Trajet</string>    
+    <string name="When">La date</string>    
+    <string name="Duration">Durée</string>    
+    <string name="Distance">Distance</string>    
+    <string name="AvSpeed">Vitesse moyenne</string>    
+    <string name="MaxSpeed">Vitesse max</string>    
+    <string name="From">à partir de</string>    
+    <string name="To">Destination</string>    
+    <string name="NoGoogleEarth">Google Earth n\'est pas installé sur votre appareil\nVoulez-vous l\'installer maintenant?</string>    
+    
+   <!-- Recorded Trip Map Tab Activity -->
+    <string name="MapUnavailable">Fichier de la carte n\'est pas trouvé...</string>
+    <string name="displaying_trip">Afficher votre trajet,veuillez patienter…</string>
+
+    
+     <!-- Recorded Trip Details Tabs Activity -->
+    <string name="UnavailableData">Information non disponible...</string>    
+
+     <!-- Recorded Trips List Activity -->
+    <string name="NoTripsHint">Il n\'y a pas de trajet enregistrés...</string>    
+    <string name="TripTitleDialogTitle">Editer titre du trajet</string>    
+    <string name="EnterTripTitle">Entrez titre</string>    
+    <string name="Done">Dáccord</string>    
+    <string name="Cancel">Annuler</string>    
+    <string name="Trip">Trajet</string>    
+    <string name="Trips">Trajets</string>    
+    <string name="NoTitleHint">Pas de titre...</string>    
+    <string name="MergeTrips">Fusionner ces trajets?</string>    
+    <string name="MergeingTrips">Rejoindre voyages, s\'il vous plaît patienter...</string>    
+    <string name="ContinuousMergerTrips">Voyages fusionnées doivent être continues avec pas plus de 300 mètres</string>    
+    <string name="Completed">Dáccord</string>    
+    <string name="UploadTrip">Télécharger vers un serveur ce voyage??</string>    
+    
+   
+       <!-- License Activity -->
+    <string name="GooglePlayServicesUnavailable">Google Play Services n\'est pas installés sur cet appareil</string>
+    <string name="GooglePlayError">Google Play Store introuvable</string>
+    <string name="AvMoveSpeed">Vitesse de déplacement moyenne</string>
+    <string name="MaxAltitudeHeader">L\'altitude maximum</string>
+    <string name="MovementTime">Temps de mouvement</string>
+    <string name="StandingTime">Tiempo de descanso</string>
+    <string name="ExportTrips">Export Trips</string>
+    <string name="ImportTrips">Import Trips</string>
+    <string name="ExportTripsDialogMessage">Export Trips ?</string>
+    <string name="ImportTripsDialogMessage">Import trips?</string>
+    <string name="Recording">Enregistrement...</string>
+    <string name="StillRecording">GPS trip recorder actif ...</string>
+    <string name="GpsMustEnabled">GPS doit être activé pour l\'enregistrement, Action annulée!</string>
+    <string name="Canceled">Action annulée</string>
+    <string name="upload_while_recording">Impossible de télécharge voyage au cours de l\'enregistrement</string>
+    <string name="share_map_image">Partager image de carte</string>
+    <string name="share_kml">Partager le fichier KML</string>
+    <string name="error_access_attachment">Erreur d\'accès au fichier</string>
+    <string name="unable_to_open_kml">Impossible de lire le fichier ou un fichier non supporté!</string>
+
+
+</resources>

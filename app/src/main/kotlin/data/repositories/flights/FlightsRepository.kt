@@ -65,7 +65,7 @@ class FlightsRepositoryImpl @Inject constructor(private val flightsLocalDatasour
         } catch (e: Exception) {
             e.printStackTrace()
             Log.e(
-                "com.bartovapps.gpstriprec.core.map_helper.com.bartovapps.gpstriprec.domain.map_helper.MapHelper",
+                "FlightsRepositoryImpl",
                 "There was an exception: " + e.message
             )
         }

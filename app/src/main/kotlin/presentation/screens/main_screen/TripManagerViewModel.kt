@@ -207,7 +207,7 @@ class TripManagerViewModel @Inject constructor(
             // only locations that has speed, bearing, and bigger than the
             // speed_filter and accurate will be taken! all other will be
             // ignored!
-            if ((newLocation.accuracy < accuracy)) {
+            if ((newLocation.accuracy < accuracy) && newLocation.hasSpeed() && newLocation.speed > SPEED_FILTER) {
                 if (isLowGpsQuality) {
                     isLowGpsQuality = false
                     publishFlightState(FlightState.GpsQualityRestored)

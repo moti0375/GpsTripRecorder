@@ -43,7 +43,7 @@ class GlidingAssistanceService : Service(), OnSharedPreferenceChangeListener {
             MainActivity::class.java
         )
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        val channelId = createNotificationChannel("GpsTripRecorderNotification")
+        val channelId = createNotificationChannel("MyGlidingAssistantNotification")
 
         val notiPendingIntent =
             PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_MUTABLE)

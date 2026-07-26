@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.oss.licenses)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
     kotlin("kapt") // Keep kapt for Hilt for now
 }
 
@@ -106,5 +108,9 @@ dependencies {
 
     implementation (files("libs/jdom-2.0.6.jar"))
     implementation (files("libs/jdom-2.0.6-javadoc.jar"))
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 
 }

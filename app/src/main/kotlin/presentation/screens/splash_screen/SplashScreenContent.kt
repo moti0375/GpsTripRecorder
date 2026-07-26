@@ -52,8 +52,6 @@ fun SplashScreenContent(
             hasLocation = isGranted(Manifest.permission.ACCESS_FINE_LOCATION),
             hasNotifications = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
                 isGranted(Manifest.permission.POST_NOTIFICATIONS) else true,
-            hasMediaImages = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-                isGranted(Manifest.permission.READ_MEDIA_IMAGES) else true,
             hasStorage = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
                 isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) else true
         )

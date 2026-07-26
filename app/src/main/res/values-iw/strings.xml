@@ -24,19 +24,18 @@
 	<string name="NO">לא</string>    
 
 	<string name="WaitForGPS">המתן למציאת מיקומך ע״י GPS...</string>    
-		<string name="LocationFounded">מיקומך נמצא, ניתן להתחיל במסלול</string>    
+    <string name="LocationFounded">מיקומך נמצא, טיסה נעימה</string>
 	<string name="Goodbye">להתראות...</string>    
 
     <!-- Trip Manager -->
-	<string name="NotEnoughData">אין מספיק נתונים, המסלול לא ישמר..</string>    
-	<string name="TripSaved">המסלול נשמר בהצלחה</string>    
+	<string name="NotEnoughData">אין מספיק נתונים, הטיסה לא תישמר..</string>
+	<string name="TripSaved">הטיסה נשמר בהצלחה</string>
 							
     <!-- Settings onItemSelection Strings -->
-    <string name="RecordedTrips">המסלולים שלי</string>
+    <string name="RecordedTrips">הטיסות שלי</string>
     <string name="GoogleAggreement">הסכם שימוש גוגל</string>
     <string name="AppSettings">הגדרות</string>
-    <string name="StartMusicPlayer">נגן מוזיקה</string>
-    
+
     
     <!-- Settings strings -->
     <string name="unites_category">יחידות מדידה</string>
@@ -53,7 +52,7 @@
    
     <string name="MapCategory">הגדרות מפה</string>
     <string name="LineColorTitle">צבע מסלול</string>
-    <string name="LineColorSummary">הצבע בו יוצג המסלול</string>
+    <string name="LineColorSummary">הצבע בו יוצג מסלול הטיסה</string>
     
     <string name="ZoomTitle">זום</string>
     <string name="ZoomSummary">זום מצלמת מפה</string>
@@ -61,12 +60,12 @@
     <string name="LineWidthTitle">רוחב קו מסלול</string>
     <string name="LineWidthSummary">רוחב של קו המסלול</string>
 
-    <string name="SavingOptionsCategory">אפשרויות שמירת מסלול</string>
-    <string name="AutoSaveSummary">אפשרויות שמירת מסלול אוטומטי</string>
-    <string name="AutoSaveTitle">שמירת מסלול אוטומטי</string>
+    <string name="SavingOptionsCategory">אפשרויות שמירה</string>
+    <string name="AutoSaveSummary">אפשרויות שמירת אוטומטית</string>
+    <string name="AutoSaveTitle">שמירה אוטומטית</string>
 
         <!-- Recorded Trip Tabs Activity -->
-    <string name="RecordedDetailedTitle">נתוני מסלול</string>    
+    <string name="RecordedDetailedTitle">נתוני טיסה</string>
     <string name="When">תאריך</string>    
     <string name="Duration">משך זמן</string>    
     <string name="Distance">מרחק</string>    
@@ -78,27 +77,27 @@
     
    <!-- Recorded Trip Map Tab Activity -->
     <string name="MapUnavailable">קובץ מפה אינו נמצא...</string>
-    <string name="displaying_trip">מציג את המסלול שלך, אנא המתן...</string>
+    <string name="displaying_trip">מציג את הטיסה שלך, אנא המתן...</string>
 
     
      <!-- Recorded Trip Details Tabs Activity -->
     <string name="unavailable_data">המידע אינו זמין...</string>
 
      <!-- Recorded Trips List Activity -->
-    <string name="NoTripsHint">אין הקלטות עדיין...</string>    
-    <string name="TripTitleDialogTitle">עריכת שם מסלול</string>    
-    <string name="EnterTripTitle">שם המסלול</string>    
+    <string name="NoTripsHint">אין טיסות עדיין...</string>
+    <string name="TripTitleDialogTitle">עריכת תיאור הטיסה</string>
+    <string name="EnterTripTitle">שם</string>
     <string name="Done">סיום</string>    
     <string name="Cancel">בטל</string>    
     <string name="Trip">מסלול</string>    
-    <string name="Trips">מסלולים</string>    
-	<string name="DeleteDialog">למחוק מסלולים נבחרים?</string>    
-    <string name="NoTitleHint">מסלול ללא שם...</string>    
+    <string name="Trips">הטיסות שלי</string>
+	<string name="DeleteDialog">למחוק טיסות נבחרות?</string>
+    <string name="NoTitleHint">טיסה ללא שם...</string>
     <string name="MergeTrips">לאחד מסלולים אלו?</string>    
     <string name="MergeingTrips">מאחד מסלולים, נא להמתין...</string>    
     <string name="ContinuousMergerTrips">יש לבחור מסלולים רצופים בעד 300 מטר</string>    
     <string name="Completed">בוצע</string>    
-    <string name="UploadTrip">להעלות מסלול זה?</string>
+    <string name="UploadTrip">להעלות טיסה זו?</string>
     <string name="NoFlights">השמים מחכים</string>
 
     <!-- License Activity -->

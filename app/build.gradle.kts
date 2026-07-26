@@ -56,6 +56,22 @@ android {
     }
 }
 
+// firebase-analytics's latest play-services-measurement releases are compiled with Kotlin 2.2
+// metadata, which this project's Kotlin 2.0.21 toolchain can't read. Pin the last measurement
+// release built with compatible metadata until the project does a full Kotlin/Hilt/AGP bump.
+configurations.all {
+    resolutionStrategy {
+        force(
+            "com.google.android.gms:play-services-measurement:22.4.0",
+            "com.google.android.gms:play-services-measurement-api:22.4.0",
+            "com.google.android.gms:play-services-measurement-base:22.4.0",
+            "com.google.android.gms:play-services-measurement-impl:22.4.0",
+            "com.google.android.gms:play-services-measurement-sdk:22.4.0",
+            "com.google.android.gms:play-services-measurement-sdk-api:22.4.0",
+        )
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -112,5 +128,6 @@ dependencies {
     // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics)
+    implementation("com.google.firebase:firebase-analytics:22.4.0")
 
 }

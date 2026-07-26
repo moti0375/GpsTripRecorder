@@ -68,6 +68,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 # Firebase
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+# firebase-analytics is pinned to an explicit version in app/build.gradle.kts instead of the BOM
+# (see the resolutionStrategy.force comment there for why).
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

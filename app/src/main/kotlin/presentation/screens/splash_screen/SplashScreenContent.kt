@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.core.content.ContextCompat
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.presentation.screens.splash_screen.PermissionsViewModel
+import com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen.PermissionsViewModel
 import kotlinx.coroutines.delay
 
 private const val SPLASH_TIMEOUT = 3500L

@@ -26,7 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.model.Glider
 import presentation.composables.EmptyGlidersContent
 import presentation.composables.GliderListItem
 

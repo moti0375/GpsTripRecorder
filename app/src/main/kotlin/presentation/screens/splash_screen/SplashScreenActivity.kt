@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.MaterialTheme
 import androidx.lifecycle.lifecycleScope
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.presentation.screens.splash_screen.PermissionsViewModel
+import com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen.PermissionsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

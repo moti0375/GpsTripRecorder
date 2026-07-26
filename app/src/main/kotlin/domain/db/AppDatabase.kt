@@ -1,12 +1,12 @@
-package com.dunihuliapps.myglidingassistnat.domain.db
+package com.dunihuliapps.myglidingassistant.domain.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
-import com.dunihuliapps.myglidingassistnat.domain.datasources.flights.FlightDao
-import com.dunihuliapps.myglidingassistnat.domain.datasources.gliders.GlidersDao
+import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightDao
+import com.dunihuliapps.myglidingassistant.domain.datasources.gliders.GlidersDao
 import data.model.Flight
 
 @Database(entities = [Flight::class, Glider::class], version = 3, exportSchema = false)

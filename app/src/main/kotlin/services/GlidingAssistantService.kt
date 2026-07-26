@@ -12,8 +12,8 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.preference.PreferenceManager
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.data.enums.AltitudeUnits
-import com.dunihuliapps.myglidingassistnat.data.enums.DistanceUnits
+import com.dunihuliapps.myglidingassistant.data.enums.AltitudeUnits
+import com.dunihuliapps.myglidingassistant.data.enums.DistanceUnits
 import presentation.screens.MainActivity
 import java.util.Locale
 

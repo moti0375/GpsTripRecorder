@@ -1,9 +1,9 @@
 package domain.di
 
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlManager
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlManagerImpl
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlParser
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlParserImpl
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlManager
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlManagerImpl
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlParser
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlParserImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

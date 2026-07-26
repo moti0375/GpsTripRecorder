@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.domain.datasources.gliders
+package com.dunihuliapps.myglidingassistant.domain.datasources.gliders
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.model.Glider
 import data.model.Flight
 import kotlinx.coroutines.flow.Flow
 

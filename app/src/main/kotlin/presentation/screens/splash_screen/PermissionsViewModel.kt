@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.presentation.screens.splash_screen
+package com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen
 
 import android.Manifest
 import android.os.Build

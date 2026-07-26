@@ -1,6 +1,6 @@
-package com.dunihuliapps.myglidingassistnat.domain.di
-import com.dunihuliapps.myglidingassistnat.domain.formatters.TimeFormatter
-import com.dunihuliapps.myglidingassistnat.presentation.units_formatters.HmsFormatter
+package com.dunihuliapps.myglidingassistant.domain.di
+import com.dunihuliapps.myglidingassistant.domain.formatters.TimeFormatter
+import com.dunihuliapps.myglidingassistant.presentation.units_formatters.HmsFormatter
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

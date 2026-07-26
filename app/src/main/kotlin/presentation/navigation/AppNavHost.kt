@@ -22,7 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.utils.Utils
+import com.dunihuliapps.myglidingassistant.utils.Utils
 import data.model.Flight
 import presentation.screens.flight_details_screen.FlightDetailsContent
 import presentation.screens.flight_details_screen.FlightDetailsViewModel

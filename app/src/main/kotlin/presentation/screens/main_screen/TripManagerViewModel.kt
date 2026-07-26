@@ -9,15 +9,15 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dunihuliapps.myglidingassistnat.data.enums.RecordingMode
-import com.dunihuliapps.myglidingassistnat.data.enums.RecordingState
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
-import com.dunihuliapps.myglidingassistnat.data.repositories.flights.FlightsRepository
-import com.dunihuliapps.myglidingassistnat.data.repositories.gliders.GlidersRepository
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlManager
+import com.dunihuliapps.myglidingassistant.data.enums.RecordingMode
+import com.dunihuliapps.myglidingassistant.data.enums.RecordingState
+import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepository
+import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlManager
 import domain.flight_computer.FlightComputer
-import com.dunihuliapps.myglidingassistnat.domain.files.path_provider.PathProvider
-import com.dunihuliapps.myglidingassistnat.domain.timer.TripTimer
+import com.dunihuliapps.myglidingassistant.domain.files.path_provider.PathProvider
+import com.dunihuliapps.myglidingassistant.domain.timer.TripTimer
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.model.Flight
@@ -59,7 +59,7 @@ class TripManagerViewModel @Inject constructor(
     private var takeOffTime: Long = 0
     private var landingTime: Long = 0
     private var currentFlightGlider: String? = null
-    private var currentGlider: com.dunihuliapps.myglidingassistnat.data.model.Glider? = null
+    private var currentGlider: com.dunihuliapps.myglidingassistant.data.model.Glider? = null
     private var currentFlightFirstPilot: String? = null
     private var currentFlightSecondPilot: String? = null
     /**

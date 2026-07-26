@@ -61,7 +61,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.model.Glider
 import presentation.composables.main_screen.GaugesPanel
 import presentation.composables.main_screen.GliderToolbarIcon
 import presentation.composables.main_screen.MainMapContainer

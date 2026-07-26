@@ -1,8 +1,8 @@
-package com.dunihuliapps.myglidingassistnat.data.repositories.flights
+package com.dunihuliapps.myglidingassistant.data.repositories.flights
 
 import android.graphics.Bitmap
 import android.util.Log
-import com.dunihuliapps.myglidingassistnat.domain.datasources.flights.FlightsLocalDatasource
+import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasource
 import data.model.Flight
 import kotlinx.coroutines.flow.Flow
 import java.io.FileOutputStream

@@ -4,9 +4,9 @@ import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dunihuliapps.myglidingassistnat.data.repositories.flights.FlightsRepository
-import com.dunihuliapps.myglidingassistnat.domain.files.kml.KmlManager
-import com.dunihuliapps.myglidingassistnat.domain.files.path_provider.PathProvider
+import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepository
+import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlManager
+import com.dunihuliapps.myglidingassistant.domain.files.path_provider.PathProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.model.Flight
 import kotlinx.coroutines.flow.MutableStateFlow

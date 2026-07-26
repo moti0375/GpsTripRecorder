@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.domain.formatters
+package com.dunihuliapps.myglidingassistant.domain.formatters
 
 import android.text.SpannableString
 

@@ -1,6 +1,6 @@
 package presentation.screens.main_screen
 import android.location.Location
-import com.dunihuliapps.myglidingassistnat.domain.map_helper.ImageMarker
+import com.dunihuliapps.myglidingassistant.domain.map_helper.ImageMarker
 import com.google.android.gms.maps.model.LatLng
 import domain.flight_computer.SafetyCircle
 

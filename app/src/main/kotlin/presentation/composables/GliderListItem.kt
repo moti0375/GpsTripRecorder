@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.model.Glider
 import java.io.File
 
 @Composable

@@ -1,5 +1,5 @@
 package presentation.map
-import com.dunihuliapps.myglidingassistnat.domain.map_helper.ImageMarker
+import com.dunihuliapps.myglidingassistant.domain.map_helper.ImageMarker
 import com.google.android.gms.maps.model.Marker
 
 interface InfoWindowClickListener {

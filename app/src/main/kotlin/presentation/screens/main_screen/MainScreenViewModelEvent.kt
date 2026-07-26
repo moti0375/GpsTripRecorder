@@ -1,7 +1,7 @@
 package presentation.screens.main_screen
 import android.graphics.Bitmap
 import android.location.Location
-import com.dunihuliapps.myglidingassistnat.data.enums.RecordingMode
+import com.dunihuliapps.myglidingassistant.data.enums.RecordingMode
 import data.model.Flight
 
 sealed class MainScreenViewModelEvent {

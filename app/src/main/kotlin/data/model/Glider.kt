@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.data.model
+package com.dunihuliapps.myglidingassistant.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

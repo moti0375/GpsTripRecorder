@@ -1,8 +1,8 @@
 package presentation.screens.gliders.gliders_screen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
-import com.dunihuliapps.myglidingassistnat.data.repositories.gliders.GlidersRepository
+import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn

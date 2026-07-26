@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.presentation.units_formatters
+package com.dunihuliapps.myglidingassistant.presentation.units_formatters
 import android.text.SpannableString
 import java.util.Locale
 

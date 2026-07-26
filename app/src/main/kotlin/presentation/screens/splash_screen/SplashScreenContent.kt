@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.core.content.ContextCompat
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.presentation.screens.splash_screen.PermissionsViewModel
+import com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen.PermissionsViewModel
 import kotlinx.coroutines.delay
 
 private const val SPLASH_TIMEOUT = 3500L
@@ -52,8 +52,6 @@ fun SplashScreenContent(
             hasLocation = isGranted(Manifest.permission.ACCESS_FINE_LOCATION),
             hasNotifications = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
                 isGranted(Manifest.permission.POST_NOTIFICATIONS) else true,
-            hasMediaImages = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-                isGranted(Manifest.permission.READ_MEDIA_IMAGES) else true,
             hasStorage = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
                 isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) else true
         )

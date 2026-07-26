@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.content.res.ResourcesCompat
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.domain.map_helper.ImageMarker
+import com.dunihuliapps.myglidingassistant.domain.map_helper.ImageMarker
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter
 import com.google.android.gms.maps.model.Marker
 import java.io.File

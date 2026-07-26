@@ -1,9 +1,9 @@
-package com.dunihuliapps.myglidingassistnat.domain.di
+package com.dunihuliapps.myglidingassistant.domain.di
 import android.content.Context
 import android.content.res.Resources
 import android.location.Geocoder
-import com.dunihuliapps.myglidingassistnat.domain.timer.TimerManager
-import com.dunihuliapps.myglidingassistnat.domain.timer.TripTimer
+import com.dunihuliapps.myglidingassistant.domain.timer.TimerManager
+import com.dunihuliapps.myglidingassistant.domain.timer.TripTimer
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

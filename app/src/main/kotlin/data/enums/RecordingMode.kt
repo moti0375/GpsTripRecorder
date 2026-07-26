@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.data.enums
+package com.dunihuliapps.myglidingassistant.data.enums
 
 enum class RecordingMode {
     NEW_TRIP,

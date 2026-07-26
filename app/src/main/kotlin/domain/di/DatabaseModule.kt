@@ -1,8 +1,8 @@
-package com.dunihuliapps.myglidingassistnat.domain.di
+package com.dunihuliapps.myglidingassistant.domain.di
 
 import android.content.Context
 import androidx.room.Room
-import com.dunihuliapps.myglidingassistnat.domain.db.AppDatabase
+import com.dunihuliapps.myglidingassistant.domain.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

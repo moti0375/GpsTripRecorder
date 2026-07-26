@@ -1,6 +1,6 @@
-package com.dunihuliapps.myglidingassistnat.domain.datasources.gliders
+package com.dunihuliapps.myglidingassistant.domain.datasources.gliders
 
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.model.Glider
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

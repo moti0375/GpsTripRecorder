@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat
+package com.dunihuliapps.myglidingassistant
 import android.app.Application
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.MapsInitializer.Renderer

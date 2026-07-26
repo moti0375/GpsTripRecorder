@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.domain.di
+package com.dunihuliapps.myglidingassistant.domain.di
 import javax.inject.Qualifier
 
 /**

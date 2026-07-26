@@ -1,7 +1,7 @@
-package com.dunihuliapps.myglidingassistnat.domain.di
+package com.dunihuliapps.myglidingassistant.domain.di
 import android.content.Context
-import com.dunihuliapps.myglidingassistnat.domain.files.path_provider.PathProvider
-import com.dunihuliapps.myglidingassistnat.domain.files.path_provider.PathProviderImpl
+import com.dunihuliapps.myglidingassistant.domain.files.path_provider.PathProvider
+import com.dunihuliapps.myglidingassistant.domain.files.path_provider.PathProviderImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

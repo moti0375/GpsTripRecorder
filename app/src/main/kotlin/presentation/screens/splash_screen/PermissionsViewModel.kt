@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.presentation.screens.splash_screen
+package com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen
 
 import android.Manifest
 import android.os.Build
@@ -34,7 +34,6 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
     fun initPermissionChain(
         hasLocation: Boolean,
         hasNotifications: Boolean,
-        hasMediaImages: Boolean,
         hasStorage: Boolean
     ) {
         steps.clear()
@@ -60,17 +59,8 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
             ))
         }
 
-        // 3. Photos/Media (Android 13+) or Storage (Legacy)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (!hasMediaImages) {
-                steps.add(PermissionStep(
-                    Manifest.permission.READ_MEDIA_IMAGES,
-                    "Photo Access",
-                    "Access is needed to attach photos to your recorded trips.",
-                    false
-                ))
-            }
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && !hasStorage) {
+        // 3. Storage (Legacy, pre-Android 10)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && !hasStorage) {
             steps.add(PermissionStep(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 "Storage Access",
@@ -97,6 +87,7 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
         if (stepIndex < steps.size) {
             _currentStep.value = steps[stepIndex]
         } else {
+            _currentStep.value = null
             _navigateToMain.value = true
         }
     }

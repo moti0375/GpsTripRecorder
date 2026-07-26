@@ -1,5 +1,5 @@
-package com.dunihuliapps.myglidingassistnat.presentation.units_formatters
-import com.dunihuliapps.myglidingassistnat.domain.formatters.TimeFormatter
+package com.dunihuliapps.myglidingassistant.presentation.units_formatters
+import com.dunihuliapps.myglidingassistant.domain.formatters.TimeFormatter
 import java.util.Locale
 import javax.inject.Inject
 

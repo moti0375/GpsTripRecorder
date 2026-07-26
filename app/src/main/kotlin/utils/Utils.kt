@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.utils
+package com.dunihuliapps.myglidingassistant.utils
 
 import android.content.Context
 import android.graphics.Bitmap

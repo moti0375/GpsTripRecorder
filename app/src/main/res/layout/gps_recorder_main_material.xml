@@ -68,7 +68,7 @@
             </LinearLayout>
 
 
-            <com.dunihuliapps.myglidingassistnat.presentation.views.text_indicator.TextIndicator
+            <com.dunihuliapps.myglidingassistant.presentation.views.text_indicator.TextIndicator
                 android:id="@+id/tvTimer"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
             android:alpha="1"
             android:padding="4dp">
 
-            <com.dunihuliapps.myglidingassistnat.presentation.views.text_indicator.TextIndicator
+            <com.dunihuliapps.myglidingassistant.presentation.views.text_indicator.TextIndicator
                 android:id="@+id/tvSpeed"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -99,7 +99,7 @@
                 android:layout_marginEnd="2dp"/>
 
 
-            <com.dunihuliapps.myglidingassistnat.presentation.views.text_indicator.TextIndicator
+            <com.dunihuliapps.myglidingassistant.presentation.views.text_indicator.TextIndicator
                 android:id="@+id/tvDistance"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -138,7 +138,7 @@
         android:src="@drawable/ic_action_new"
         android:contentDescription="Start Stop Trip"/>
 
-    <com.dunihuliapps.myglidingassistnat.presentation.views.text_indicator.TextIndicator
+    <com.dunihuliapps.myglidingassistant.presentation.views.text_indicator.TextIndicator
         android:id="@+id/tvAltitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

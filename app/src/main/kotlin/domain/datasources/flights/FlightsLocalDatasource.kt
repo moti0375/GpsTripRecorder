@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistnat.domain.datasources.flights
+package com.dunihuliapps.myglidingassistant.domain.datasources.flights
 
 import data.model.Flight
 import kotlinx.coroutines.flow.Flow

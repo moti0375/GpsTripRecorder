@@ -3,7 +3,7 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dunihuliapps.myglidingassistnat.data.repositories.gliders.GlidersRepository
+import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

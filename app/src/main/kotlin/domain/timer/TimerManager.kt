@@ -1,6 +1,6 @@
-package com.dunihuliapps.myglidingassistnat.domain.timer
+package com.dunihuliapps.myglidingassistant.domain.timer
 import android.os.Handler
-import com.dunihuliapps.myglidingassistnat.domain.di.QTimerThread
+import com.dunihuliapps.myglidingassistant.domain.di.QTimerThread
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

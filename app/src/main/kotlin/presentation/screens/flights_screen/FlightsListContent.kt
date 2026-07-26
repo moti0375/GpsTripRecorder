@@ -72,8 +72,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistnat.data.model.Glider
-import com.dunihuliapps.myglidingassistnat.presentation.units_formatters.HmsFormatter
+import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.presentation.units_formatters.HmsFormatter
 import data.model.Flight
 import java.io.File
 

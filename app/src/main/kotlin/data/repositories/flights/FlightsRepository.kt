@@ -1,8 +1,8 @@
-package com.dunihuliapps.myglidingassistnat.data.repositories.flights
+package com.dunihuliapps.myglidingassistant.data.repositories.flights
 
 import android.graphics.Bitmap
 import android.util.Log
-import com.dunihuliapps.myglidingassistnat.domain.datasources.flights.FlightsLocalDatasource
+import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasource
 import data.model.Flight
 import kotlinx.coroutines.flow.Flow
 import java.io.FileOutputStream
@@ -65,7 +65,7 @@ class FlightsRepositoryImpl @Inject constructor(private val flightsLocalDatasour
         } catch (e: Exception) {
             e.printStackTrace()
             Log.e(
-                "com.bartovapps.gpstriprec.core.map_helper.com.bartovapps.gpstriprec.domain.map_helper.MapHelper",
+                "FlightsRepositoryImpl",
                 "There was an exception: " + e.message
             )
         }

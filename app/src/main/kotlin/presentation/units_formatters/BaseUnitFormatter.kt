@@ -1,10 +1,10 @@
-package com.dunihuliapps.myglidingassistnat.presentation.units_formatters
+package com.dunihuliapps.myglidingassistant.presentation.units_formatters
 
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
-import com.dunihuliapps.myglidingassistnat.domain.formatters.UnitsFormatter
+import com.dunihuliapps.myglidingassistant.domain.formatters.UnitsFormatter
 
 abstract class BaseUnitFormatter : UnitsFormatter {
     abstract val unitsBuilder : StringBuilder

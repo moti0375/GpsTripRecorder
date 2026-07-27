@@ -19,16 +19,21 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.dunihuliapps.myglidingassistant.R
 import com.dunihuliapps.myglidingassistant.data.model.Glider
 import presentation.composables.EmptyGlidersContent
 import presentation.composables.GliderListItem
+import presentation.composables.rememberLocaleTextDirection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,7 +80,11 @@ fun GlidersScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("My Gliders") },
+                title = {
+                    CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                        Text(stringResource(R.string.my_gliders_title))
+                    }
+                },
                 navigationIcon = {
                     if (selectedGliderForDelete == null) {
                         IconButton(onClick = onBack) {

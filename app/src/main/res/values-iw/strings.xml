@@ -153,4 +153,25 @@
     <string name="permission_allow">אשר</string>
     <string name="permission_refuse">סרב</string>
 
+    <!-- Flights list -->
+    <string name="flights_list_title">לוח הטיסות שלי</string>
+    <string name="flights_selected_count">נבחרו %1$d</string>
+    <string name="edit_flight_details_title">עריכת פרטי טיסה</string>
+
+    <!-- New Flight dialog -->
+    <string name="new_flight_title">טיסה חדשה</string>
+    <string name="take_off_button">!זינוק</string>
+
+    <!-- Shared flight/airfield field labels -->
+    <string name="glider_label">דאון</string>
+    <string name="airfield_label">מנחת</string>
+    <string name="first_pilot_label">טייס ראשון</string>
+    <string name="second_pilot_label">טייס שני</string>
+
+    <!-- Airfields list -->
+    <string name="my_airfields_title">המנחתים שלי</string>
+
+    <!-- Gliders list -->
+    <string name="my_gliders_title">הדאונים שלי</string>
+
 </resources>

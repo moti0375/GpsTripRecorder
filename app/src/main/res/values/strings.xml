@@ -181,4 +181,25 @@
     <string name="permission_allow">Allow</string>
     <string name="permission_refuse">Refuse</string>
 
+    <!-- Flights list -->
+    <string name="flights_list_title">Recorded Flights</string>
+    <string name="flights_selected_count">Selected %1$d</string>
+    <string name="edit_flight_details_title">Edit flight details</string>
+
+    <!-- New Flight dialog -->
+    <string name="new_flight_title">New Flight</string>
+    <string name="take_off_button">Take Off</string>
+
+    <!-- Shared flight/airfield field labels -->
+    <string name="glider_label">Glider</string>
+    <string name="airfield_label">Airfield</string>
+    <string name="first_pilot_label">First pilot</string>
+    <string name="second_pilot_label">Second pilot</string>
+
+    <!-- Airfields list -->
+    <string name="my_airfields_title">My Airfields</string>
+
+    <!-- Gliders list -->
+    <string name="my_gliders_title">My Gliders</string>
+
 </resources>

@@ -368,15 +368,16 @@ private fun NewFlightDialog(
     val selectedAirfield = airfields.find { it.id == selectedAirfieldId }
     val selectedAirfieldLabel = selectedAirfield?.name ?: ""
 
+    CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
     AlertDialog(
         onDismissRequest = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot, selectedAirfieldId) },
         icon = {
             GliderToolbarIcon()
         },
-        title = { Text("New Flight") },
+        title = {
+            Text(stringResource(R.string.new_flight_title))
+        },
         text = {
-            val textDirection = rememberLocaleTextDirection()
-            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
             Column(
                 modifier = Modifier.verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -392,7 +393,7 @@ private fun NewFlightDialog(
                         value = selectedGliderLabel,
                         onValueChange = {},
                         readOnly = true,
-                        label = { Text("Glider") },
+                        label = { Text(stringResource(R.string.glider_label)) },
                         trailingIcon = {
                             ExposedDropdownMenuDefaults.TrailingIcon(expanded = gliderDropdownExpanded)
                         }
@@ -433,7 +434,7 @@ private fun NewFlightDialog(
                         value = selectedAirfieldLabel,
                         onValueChange = {},
                         readOnly = true,
-                        label = { Text("Airfield") },
+                        label = { Text(stringResource(R.string.airfield_label)) },
                         trailingIcon = {
                             ExposedDropdownMenuDefaults.TrailingIcon(expanded = airfieldDropdownExpanded)
                         }
@@ -466,7 +467,7 @@ private fun NewFlightDialog(
                     value = firstPilot,
                     onValueChange = { firstPilot = it },
                     singleLine = true,
-                    label = { Text("First pilot") }
+                    label = { Text(stringResource(R.string.first_pilot_label)) }
                 )
 
                 if (isTwoSeater) {
@@ -475,10 +476,9 @@ private fun NewFlightDialog(
                         value = secondPilot,
                         onValueChange = { secondPilot = it },
                         singleLine = true,
-                        label = { Text("Second pilot") }
+                        label = { Text(stringResource(R.string.second_pilot_label)) }
                     )
                 }
-            }
             }
         },
         confirmButton = {
@@ -489,7 +489,9 @@ private fun NewFlightDialog(
                     if (isTwoSeater) secondPilot.takeIf { it.isNotBlank() } else null,
                     selectedAirfieldId
                 )
-            }) { Text("Take Off") }
+            }) {
+                Text(stringResource(R.string.take_off_button))
+            }
         },
         dismissButton = {
             TextButton(onClick = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot, selectedAirfieldId) }) {
@@ -497,6 +499,7 @@ private fun NewFlightDialog(
             }
         }
     )
+    }
 }
 
 private data class UnitDialogConfig(

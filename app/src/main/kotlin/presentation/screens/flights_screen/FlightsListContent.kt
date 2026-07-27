@@ -182,7 +182,11 @@ fun FlightsListContent(
         topBar = {
             if (inSelectionMode) {
                 TopAppBar(
-                    title = { Text("Selected ${selectedFlightIds.size}") },
+                    title = {
+                        CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                            Text(stringResource(R.string.flights_selected_count, selectedFlightIds.size))
+                        }
+                    },
                     navigationIcon = {
                         IconButton(onClick = {
                             viewModel.mapEventToState(FlightsListEvent.ClearSelectedFlight)
@@ -208,7 +212,11 @@ fun FlightsListContent(
                 )
             } else {
                 TopAppBar(
-                    title = { Text("Recorded Flights") },
+                    title = {
+                        CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                            Text(stringResource(R.string.flights_list_title))
+                        }
+                    },
                     navigationIcon = {
                         IconButton(onClick = onBack) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -508,7 +516,11 @@ private fun EditFlightDetailsDialog(
                 tint = MaterialTheme.colorScheme.primary
             )
         },
-        title = { Text("Edit flight details") },
+        title = {
+            CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                Text(stringResource(R.string.edit_flight_details_title))
+            }
+        },
         text = {
             val textDirection = rememberLocaleTextDirection()
             CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
@@ -544,7 +556,7 @@ private fun EditFlightDetailsDialog(
                         value = selectedGliderLabel,
                         onValueChange = {},
                         readOnly = true,
-                        label = { Text("Glider") },
+                        label = { Text(stringResource(R.string.glider_label)) },
                         trailingIcon = {
                             ExposedDropdownMenuDefaults.TrailingIcon(expanded = gliderDropdownExpanded)
                         }
@@ -586,7 +598,7 @@ private fun EditFlightDetailsDialog(
                         value = selectedAirfieldName ?: "",
                         onValueChange = {},
                         readOnly = true,
-                        label = { Text("Airfield") },
+                        label = { Text(stringResource(R.string.airfield_label)) },
                         trailingIcon = {
                             ExposedDropdownMenuDefaults.TrailingIcon(expanded = airfieldDropdownExpanded)
                         }
@@ -620,7 +632,7 @@ private fun EditFlightDetailsDialog(
                     value = firstPilot,
                     onValueChange = { firstPilot = it },
                     singleLine = true,
-                    label = { Text("First pilot") }
+                    label = { Text(stringResource(R.string.first_pilot_label)) }
                 )
 
                 // Second pilot — only for 2-seat gliders
@@ -630,7 +642,7 @@ private fun EditFlightDetailsDialog(
                         value = secondPilot,
                         onValueChange = { secondPilot = it },
                         singleLine = true,
-                        label = { Text("Second pilot") }
+                        label = { Text(stringResource(R.string.second_pilot_label)) }
                     )
                 }
             }

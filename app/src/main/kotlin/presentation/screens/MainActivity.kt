@@ -44,6 +44,7 @@ import com.dunihuliapps.myglidingassistant.data.enums.AltitudeUnits
 import com.dunihuliapps.myglidingassistant.data.enums.DistanceUnits
 import com.dunihuliapps.myglidingassistant.data.enums.data.enums.SpeedUnits
 import com.dunihuliapps.myglidingassistant.domain.formatters.UnitsFormatter
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.FeetFormatter
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.HmsFormatter
@@ -85,6 +86,7 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
     var isLoading by mutableStateOf(false)
     var loadingMessage by mutableStateOf("")
     var gliders by mutableStateOf<List<Glider>>(emptyList())
+    var airfields by mutableStateOf<List<Airfield>>(emptyList())
     var flightDraft by mutableStateOf(FlightDraft())
     var speedUnitValue by mutableStateOf("1")
     var distanceUnitValue by mutableStateOf("1")
@@ -141,9 +143,11 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
                         showNewFlightDialog = showNewFlightDialog,
                         showLowGpsSignal = showLowGpsSignal,
                         gliders = gliders,
+                        airfields = airfields,
                         initialFlightGlider = flightDraft.glider,
                         initialFlightFirstPilot = flightDraft.firstPilot,
                         initialFlightSecondPilot = flightDraft.secondPilot,
+                        initialFlightAirfieldId = flightDraft.airfieldId,
                         isLoading = isLoading,
                         loadingMessage = loadingMessage,
                         speedUnitValue = speedUnitValue,
@@ -165,19 +169,20 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
                             safetyCirclesVisible = !safetyCirclesVisible
                             mapFrag?.setSafetyCirclesVisible(safetyCirclesVisible)
                         },
-                        onTakeOffConfirmed = { glider, firstPilot, secondPilot ->
+                        onTakeOffConfirmed = { glider, firstPilot, secondPilot, airfieldId ->
                             showNewFlightDialog = false
                             tripManagerViewModel.addTripEvent(
-                                MainScreenViewModelEvent.StartFlight(glider, firstPilot, secondPilot)
+                                MainScreenViewModelEvent.StartFlight(glider, firstPilot, secondPilot, airfieldId)
                             )
                         },
-                        onNewFlightDismiss = { glider, firstPilot, secondPilot ->
+                        onNewFlightDismiss = { glider, firstPilot, secondPilot, airfieldId ->
                             showNewFlightDialog = false
-                            tripManagerViewModel.updateFlightDraft(glider, firstPilot, secondPilot)
+                            tripManagerViewModel.updateFlightDraft(glider, firstPilot, secondPilot, airfieldId)
                         },
                         onFlightsClick = { navController.navigate("flights") },
                         onSettingsClick = { navController.navigate("settings") },
                         onGlidersClick = { navController.navigate("gliders") },
+                        onAirfieldsClick = { navController.navigate("airfields") },
                         onLicenseClick = { startActivity(Intent(this@MainActivity, OssLicensesMenuActivity::class.java)) },
                         onMapReady = { fragment -> onFragmentReady(fragment) },
                         onGaugesHeightChanged = { px ->
@@ -218,6 +223,7 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
 
         subscribeTimerChanges()
         subscribeGliders()
+        subscribeAirfields()
         subscribeFlightDraft()
     }
 
@@ -276,7 +282,7 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
             is FlightState.StartLocation -> mapFrag?.goToLocation(state.location)
             is FlightState.SafetyCirclesReady -> {
                 safetyCirclesVisible = true
-                mapFrag?.drawSafetyCircles(state.takeoffLocation, state.circles) { meters ->
+                mapFrag?.drawSafetyCircles(state.center, state.circles) { meters ->
                     distanceFormatter.formatUnits(meters).toString()
                 }
             }
@@ -345,6 +351,12 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
     private fun subscribeGliders() {
         lifecycleScope.launch {
             tripManagerViewModel.gliders.collect { gliders = it }
+        }
+    }
+
+    private fun subscribeAirfields() {
+        lifecycleScope.launch {
+            tripManagerViewModel.airfields.collect { airfields = it }
         }
     }
 

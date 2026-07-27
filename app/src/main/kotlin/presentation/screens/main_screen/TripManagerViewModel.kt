@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dunihuliapps.myglidingassistant.data.enums.RecordingMode
 import com.dunihuliapps.myglidingassistant.data.enums.RecordingState
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.repositories.airfields.AirfieldsRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import com.dunihuliapps.myglidingassistant.domain.files.kml.KmlManager
@@ -39,6 +41,7 @@ class TripManagerViewModel @Inject constructor(
     private val pathProvider: PathProvider,
     private val flightsRepository: FlightsRepository,
     private val glidersRepository: GlidersRepository,
+    private val airfieldsRepository: AirfieldsRepository,
     private val timer: TripTimer,
     private val kmlManager: KmlManager,
     private val sharedPreferences: SharedPreferences,
@@ -51,6 +54,9 @@ class TripManagerViewModel @Inject constructor(
     val gliders: StateFlow<List<Glider>> = glidersRepository.getAllGliders()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    val airfields: StateFlow<List<Airfield>> = airfieldsRepository.getAllAirfields()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
     private val _flightDraft = MutableStateFlow(FlightDraft())
     val flightDraft: StateFlow<FlightDraft> = _flightDraft.asStateFlow()
 
@@ -60,6 +66,7 @@ class TripManagerViewModel @Inject constructor(
     private var landingTime: Long = 0
     private var currentFlightGlider: String? = null
     private var currentGlider: com.dunihuliapps.myglidingassistant.data.model.Glider? = null
+    private var currentAirfield: Airfield? = null
     private var currentFlightFirstPilot: String? = null
     private var currentFlightSecondPilot: String? = null
     /**
@@ -106,7 +113,7 @@ class TripManagerViewModel @Inject constructor(
             is MainScreenViewModelEvent.TakeOff -> takeOff()
             is MainScreenViewModelEvent.FinishFlight -> finishFlight()
             is MainScreenViewModelEvent.StartStopButtonClicked -> handleStartStopClicked()
-            is MainScreenViewModelEvent.StartFlight -> startFlight(event.glider, event.firstPilot, event.secondPilot)
+            is MainScreenViewModelEvent.StartFlight -> startFlight(event.glider, event.firstPilot, event.secondPilot, event.airfieldId)
         }
     }
 
@@ -134,16 +141,17 @@ class TripManagerViewModel @Inject constructor(
         }
     }
 
-    fun updateFlightDraft(glider: String?, firstPilot: String, secondPilot: String) {
-        _flightDraft.value = FlightDraft(glider, firstPilot, secondPilot)
+    fun updateFlightDraft(glider: String?, firstPilot: String, secondPilot: String, airfieldId: Long?) {
+        _flightDraft.value = FlightDraft(glider, firstPilot, secondPilot, airfieldId)
     }
 
-    private fun startFlight(glider: String?, firstPilot: String?, secondPilot: String?) {
+    private fun startFlight(glider: String?, firstPilot: String?, secondPilot: String?, airfieldId: Long?) {
         currentFlightGlider = glider
         currentGlider = if (glider != null) gliders.value.find { it.callsign == glider } else null
+        currentAirfield = if (airfieldId != null) airfields.value.find { it.id == airfieldId } else null
         currentFlightFirstPilot = firstPilot
         currentFlightSecondPilot = secondPilot
-        _flightDraft.value = FlightDraft(glider, firstPilot ?: "", secondPilot ?: "")
+        _flightDraft.value = FlightDraft(glider, firstPilot ?: "", secondPilot ?: "", airfieldId)
         resetRoute(true)
         recordingMode = RecordingMode.NEW_TRIP
         takeOff()
@@ -307,6 +315,7 @@ class TripManagerViewModel @Inject constructor(
                     glider = currentFlightGlider,
                     firstPilot = currentFlightFirstPilot,
                     secondPilot = currentFlightSecondPilot,
+                    airfield = currentAirfield?.name,
                 )
 
                 val tripId = flightsRepository.insertFlight(flight)
@@ -368,7 +377,12 @@ class TripManagerViewModel @Inject constructor(
         publishFlightState(FlightState.StartLocation(location))
         val ratio = currentGlider?.ratio?.takeIf { it > 0 } ?: DEFAULT_GLIDE_RATIO
         val circles = flightComputer.calculateSafetyCircles(ratio)
-        publishFlightState(FlightState.SafetyCirclesReady(LatLng(location.latitude, location.longitude), circles))
+        // Circles are anchored on the selected airfield (if any) rather than the takeoff
+        // GPS fix, since recording can start mid-flight far from where the pilot will land.
+        val circlesCenter = currentAirfield
+            ?.let { LatLng(it.latitude, it.longitude) }
+            ?: LatLng(location.latitude, location.longitude)
+        publishFlightState(FlightState.SafetyCirclesReady(circlesCenter, circles))
         if (recordingState == RecordingState.Recording) {
             if (recordingMode == RecordingMode.CONTINUE_TRIP) {
                 timer.resumeTimer()
@@ -418,4 +432,5 @@ data class FlightDraft(
     val glider: String? = null,
     val firstPilot: String = "",
     val secondPilot: String = "",
+    val airfieldId: Long? = null,
 )

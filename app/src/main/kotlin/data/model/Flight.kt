@@ -19,4 +19,5 @@ data class Flight @JvmOverloads constructor(
     val imageFileName: String? = null,
     val firstPilot: String? = null,
     val secondPilot: String? = null,
-    val glider: String? = null)
+    val glider: String? = null,
+    val airfield: String? = null)

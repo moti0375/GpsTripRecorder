@@ -11,6 +11,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Notes
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Straighten
@@ -73,6 +74,9 @@ fun FlightDetailsPanel(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                 }
+            }
+            f.airfield?.let {
+                FlightDetailRow(Icons.Default.Flag, it)
             }
             f.firstPilot?.let {
                 FlightDetailRow(Icons.Default.Person, it)

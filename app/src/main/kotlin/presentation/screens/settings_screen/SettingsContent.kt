@@ -24,6 +24,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,17 +32,28 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.dunihuliapps.myglidingassistant.R
+import presentation.composables.rememberLocaleTextDirection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsContent(viewModel: SettingsViewModel, onNavigateUp: () -> Unit) {
     val state by viewModel.state.collectAsState()
 
+    val textDirection = rememberLocaleTextDirection()
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Settings") },
+                title = {
+                    CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                        Text(stringResource(R.string.AppSettings))
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -60,58 +72,58 @@ fun SettingsContent(viewModel: SettingsViewModel, onNavigateUp: () -> Unit) {
                 .navigationBarsPadding()
         ) {
             item {
-                PreferenceCategory(title = "Units")
+                PreferenceCategory(title = stringResource(R.string.unites_category))
                 PreferenceListItem(
-                    title = "Distance Units",
+                    title = stringResource(R.string.distance_units_pref_title),
                     currentValue = state.distanceUnits,
-                    entries = listOf("Metric", "Miles"),
-                    values = listOf("1", "2"),
+                    entries = stringArrayResource(R.array.distance_units_entries).toList(),
+                    values = stringArrayResource(R.array.distance_units_values).toList(),
                     onValueSelected = { viewModel.updatePreference("distance_units", it) }
                 )
                 PreferenceListItem(
-                    title = "Speed Units",
+                    title = stringResource(R.string.speed_units_pref_title),
                     currentValue = state.speedUnits,
-                    entries = listOf("Metric", "Knots"),
-                    values = listOf("1", "2"),
+                    entries = stringArrayResource(R.array.speed_units_entries).toList(),
+                    values = stringArrayResource(R.array.speed_units_values).toList(),
                     onValueSelected = { viewModel.updatePreference("speed_units", it) }
                 )
                 PreferenceListItem(
-                    title = "Altitude Units",
+                    title = stringResource(R.string.AltitudePrefTitle),
                     currentValue = state.altitudeUnits,
-                    entries = listOf("Feet", "Metric"),
-                    values = listOf("1", "2"),
+                    entries = stringArrayResource(R.array.altitude_units_entries).toList(),
+                    values = stringArrayResource(R.array.altitude_units_values).toList(),
                     onValueSelected = { viewModel.updatePreference("altitudeUnits", it) }
                 )
 
-                PreferenceCategory(title = "Map")
+                PreferenceCategory(title = stringResource(R.string.MapCategory))
                 PreferenceListItem(
-                    title = "Line Color",
+                    title = stringResource(R.string.LineColorTitle),
                     currentValue = state.lineColor,
-                    entries = listOf("Red", "Green", "Yellow", "Blue"),
-                    values = listOf("1", "2", "3", "4"),
+                    entries = stringArrayResource(R.array.line_color_entries).toList(),
+                    values = stringArrayResource(R.array.line_color_values).toList(),
                     onValueSelected = { viewModel.updatePreference("LineColor", it) }
                 )
                 PreferenceListItem(
-                    title = "Line Width",
+                    title = stringResource(R.string.LineWidthTitle),
                     currentValue = state.lineWidth,
-                    entries = listOf("Thin", "Thick", "Thicker"),
-                    values = listOf("5", "10", "15"),
+                    entries = stringArrayResource(R.array.line_width_entries).toList(),
+                    values = stringArrayResource(R.array.line_width_values).toList(),
                     onValueSelected = { viewModel.updatePreference("lineWidth", it) }
                 )
                 PreferenceListItem(
-                    title = "Map Zoom",
+                    title = stringResource(R.string.ZoomTitle),
                     currentValue = state.zoom,
-                    entries = listOf("State", "City", "Block", "Street"),
-                    values = listOf("6", "12", "15", "20"),
+                    entries = stringArrayResource(R.array.zoom_entries).toList(),
+                    values = stringArrayResource(R.array.zoom_values).toList(),
                     onValueSelected = { viewModel.updatePreference("zoom", it) }
                 )
 
-                PreferenceCategory(title = "Saving Options")
+                PreferenceCategory(title = stringResource(R.string.SavingOptionsCategory))
                 PreferenceListItem(
-                    title = "Auto Save",
+                    title = stringResource(R.string.AutoSaveTitle),
                     currentValue = state.autoSave,
-                    entries = listOf("Automatic save trip when done", "Ask me to save trip"),
-                    values = listOf("0", "1"),
+                    entries = stringArrayResource(R.array.auto_save_entries).toList(),
+                    values = stringArrayResource(R.array.auto_save_values).toList(),
                     onValueSelected = { viewModel.updatePreference("AutoSavePrefKey", it) }
                 )
             }
@@ -121,12 +133,14 @@ fun SettingsContent(viewModel: SettingsViewModel, onNavigateUp: () -> Unit) {
 
 @Composable
 private fun PreferenceCategory(title: String) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(start = 16.dp, top = 20.dp, end = 16.dp, bottom = 4.dp)
-    )
+    CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(start = 16.dp, top = 20.dp, end = 16.dp, bottom = 4.dp)
+        )
+    }
 }
 
 @Composable
@@ -138,6 +152,7 @@ private fun PreferenceListItem(
     onValueSelected: (String) -> Unit
 ) {
     var showDialog by remember { mutableStateOf(false) }
+    val textDirection = rememberLocaleTextDirection()
 
     val currentLabel = entries.getOrElse(values.indexOf(currentValue)) { currentValue }
 
@@ -147,19 +162,25 @@ private fun PreferenceListItem(
             .clickable { showDialog = true }
             .padding(horizontal = 16.dp, vertical = 14.dp)
     ) {
-        Text(text = title, style = MaterialTheme.typography.bodyLarge)
-        Text(
-            text = currentLabel,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+            Text(text = title, style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = currentLabel,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
     }
     HorizontalDivider(modifier = Modifier.padding(start = 16.dp))
 
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
-            title = { Text(title) },
+            title = {
+                CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                    Text(title)
+                }
+            },
             text = {
                 Column {
                     entries.forEachIndexed { index, entry ->
@@ -182,13 +203,19 @@ private fun PreferenceListItem(
                                 }
                             )
                             Spacer(Modifier.width(8.dp))
-                            Text(entry, style = MaterialTheme.typography.bodyLarge)
+                            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                                Text(entry, style = MaterialTheme.typography.bodyLarge)
+                            }
                         }
                     }
                 }
             },
             confirmButton = {
-                TextButton(onClick = { showDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showDialog = false }) {
+                    CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                        Text(stringResource(R.string.Cancel))
+                    }
+                }
             }
         )
     }

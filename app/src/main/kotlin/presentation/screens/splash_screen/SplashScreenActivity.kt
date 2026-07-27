@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.MaterialTheme
 import androidx.lifecycle.lifecycleScope
 import com.dunihuliapps.myglidingassistant.R
-import com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen.PermissionsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,7 +22,6 @@ import java.io.IOException
 @AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {
 
-    private val permissionsViewModel: PermissionsViewModel by viewModels()
     private var attachmentFile: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +33,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContent {
             MaterialTheme {
                 SplashScreenContent(
-                    viewModel = permissionsViewModel,
-                    onNavigateToMain = { lifecycleScope.launch { navigateToMain() } },
-                    onFinish = { finish() }
+                    onNavigateToMain = { lifecycleScope.launch { navigateToMain() } }
                 )
             }
         }

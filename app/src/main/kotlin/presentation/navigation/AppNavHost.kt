@@ -32,8 +32,13 @@ import presentation.screens.gliders.edit_glider_screen.EditGliderScreen
 import presentation.screens.gliders.edit_glider_screen.EditGliderViewModel
 import presentation.screens.gliders.gliders_screen.GlidersScreen
 import presentation.screens.gliders.gliders_screen.GlidersViewModel
+import presentation.screens.onboarding.OnboardingScreen
+import presentation.screens.onboarding.OnboardingViewModel
+import presentation.screens.permissions.PermissionsScreen
 import presentation.screens.settings_screen.SettingsContent
 import presentation.screens.settings_screen.SettingsViewModel
+import presentation.screens.terms_screen.TermsAndConditionsScreen
+import presentation.screens.terms_screen.TermsViewModel
 
 @Composable
 fun AppNavHost(
@@ -41,15 +46,58 @@ fun AppNavHost(
     onUploadTrip: (Flight) -> Unit,
 ) {
     val context = LocalContext.current as ComponentActivity
+    val gateViewModel: NavigationGateViewModel = hiltViewModel()
 
     NavHost(
         navController = navController,
-        startDestination = "main",
+        startDestination = gateViewModel.startDestination,
         enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
         exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) },
         popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) },
         popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
     ) {
+
+        composable("onboarding") {
+            val viewModel: OnboardingViewModel = hiltViewModel()
+            OnboardingScreen(
+                viewModel = viewModel,
+                onFinished = {
+                    val nextRoute = if (viewModel.hasAcceptedTerms) "permissions" else "terms"
+                    navController.navigate(nextRoute) {
+                        popUpTo("onboarding") { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable("terms") {
+            val viewModel: TermsViewModel = hiltViewModel()
+            TermsAndConditionsScreen(
+                viewModel = viewModel,
+                onAccepted = {
+                    navController.navigate("permissions") {
+                        popUpTo("terms") { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(
+            "permissions",
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+            popEnterTransition = { EnterTransition.None },
+            popExitTransition = { ExitTransition.None }
+        ) {
+            PermissionsScreen(
+                onNavigateToMain = {
+                    navController.navigate("main") {
+                        popUpTo("permissions") { inclusive = true }
+                    }
+                },
+                onFinish = { context.finish() }
+            )
+        }
 
         composable(
             "main",

@@ -53,7 +53,6 @@ import com.dunihuliapps.myglidingassistant.presentation.units_formatters.MetricA
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.MetricFormatter
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.MillageFormatter
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.presentation.units_formatters.KnotsFormatter
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dagger.hilt.android.AndroidEntryPoint
 import data.model.Flight
 import kotlinx.coroutines.Job
@@ -183,7 +182,7 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
                         onSettingsClick = { navController.navigate("settings") },
                         onGlidersClick = { navController.navigate("gliders") },
                         onAirfieldsClick = { navController.navigate("airfields") },
-                        onLicenseClick = { startActivity(Intent(this@MainActivity, OssLicensesMenuActivity::class.java)) },
+                        onLicenseClick = { navController.navigate("google_maps_license") },
                         onMapReady = { fragment -> onFragmentReady(fragment) },
                         onGaugesHeightChanged = { px ->
                             gaugesHeightPx = px

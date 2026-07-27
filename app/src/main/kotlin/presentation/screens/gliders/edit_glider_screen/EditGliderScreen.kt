@@ -43,6 +43,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -53,11 +54,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import coil.compose.AsyncImage
 import com.dunihuliapps.myglidingassistant.R
+import presentation.composables.rememberLocaleTextDirection
 import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,6 +70,7 @@ fun EditGliderScreen(viewModel: EditGliderViewModel, onSaved: () -> Unit, onBack
     val scope = rememberCoroutineScope()
 
     val state by viewModel.state.collectAsState()
+    val textDirection = rememberLocaleTextDirection()
 
     val gliderImagesDir = remember {
         File(context.filesDir, "glider_images").apply { mkdirs() }
@@ -229,23 +233,27 @@ fun EditGliderScreen(viewModel: EditGliderViewModel, onSaved: () -> Unit, onBack
         ) {
             Text("Glider Details", style = MaterialTheme.typography.titleLarge)
 
-            OutlinedTextField(
-                value = state.type ?: "",
-                onValueChange = {
-                    viewModel.mapEventToState(EditGliderEvent.OnTypeChange(it))
-                },
-                label = { Text("Type (e.g. ASW-28)") },
-                modifier = Modifier.fillMaxWidth()
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                OutlinedTextField(
+                    value = state.type ?: "",
+                    onValueChange = {
+                        viewModel.mapEventToState(EditGliderEvent.OnTypeChange(it))
+                    },
+                    label = { Text("Type (e.g. ASW-28)") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
 
-            OutlinedTextField(
-                value = state.callsign ?: "",
-                onValueChange = {
-                    viewModel.mapEventToState(EditGliderEvent.OnCallsignChange(it))
-                },
-                label = { Text("Callsign") },
-                modifier = Modifier.fillMaxWidth()
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                OutlinedTextField(
+                    value = state.callsign ?: "",
+                    onValueChange = {
+                        viewModel.mapEventToState(EditGliderEvent.OnCallsignChange(it))
+                    },
+                    label = { Text("Callsign") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
 
             // Seats Selection (1 or 2)
             Column {

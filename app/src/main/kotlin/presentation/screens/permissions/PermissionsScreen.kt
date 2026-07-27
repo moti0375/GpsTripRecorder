@@ -9,14 +9,20 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dunihuliapps.myglidingassistant.R
+import presentation.composables.rememberLocaleTextDirection
 
 @Composable
 fun PermissionsScreen(
@@ -66,10 +72,28 @@ fun PermissionsScreen(
                 R.string.permission_storage_title to R.string.permission_storage_message
         }
 
+        val textDirection = rememberLocaleTextDirection()
+
         AlertDialog(
             onDismissRequest = {},
-            title = { Text(stringResource(titleRes)) },
-            text = { Text(stringResource(messageRes)) },
+            title = {
+                CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                    Text(
+                        stringResource(titleRes),
+                        textAlign = TextAlign.Start,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
+            text = {
+                CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                    Text(
+                        stringResource(messageRes),
+                        textAlign = TextAlign.Start,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
             confirmButton = {
                 TextButton(onClick = { permissionLauncher.launch(step.permission) }) {
                     Text(stringResource(R.string.permission_allow))

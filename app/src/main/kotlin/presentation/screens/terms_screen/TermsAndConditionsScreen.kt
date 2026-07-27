@@ -17,14 +17,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dunihuliapps.myglidingassistant.R
+import presentation.composables.rememberLocaleTextDirection
 
 @Composable
 fun TermsAndConditionsScreen(
@@ -32,6 +36,7 @@ fun TermsAndConditionsScreen(
     onAccepted: () -> Unit,
 ) {
     val isChecked by viewModel.isChecked.collectAsState()
+    val textDirection = rememberLocaleTextDirection()
 
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
@@ -40,18 +45,25 @@ fun TermsAndConditionsScreen(
                 .statusBarsPadding()
                 .padding(24.dp)
         ) {
-            Text(
-                text = stringResource(R.string.terms_title),
-                style = MaterialTheme.typography.headlineSmall
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                Text(
+                    text = stringResource(R.string.terms_title),
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = stringResource(R.string.terms_body),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                Text(
+                    text = stringResource(R.string.terms_body),
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Start,
+                    modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                )
+            }
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -61,10 +73,13 @@ fun TermsAndConditionsScreen(
                     checked = isChecked,
                     onCheckedChange = { viewModel.onCheckedChange(it) }
                 )
-                Text(
-                    text = stringResource(R.string.terms_checkbox_label),
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                    Text(
+                        text = stringResource(R.string.terms_checkbox_label),
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Start
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(8.dp))
             Button(

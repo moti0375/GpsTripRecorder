@@ -1,7 +1,9 @@
 package presentation.screens.flights_screen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.data.repositories.airfields.AirfieldsRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class FlightsListViewModel @Inject constructor(
     private val flightsRepository: FlightsRepository,
-    private val glidersRepository: GlidersRepository
+    private val glidersRepository: GlidersRepository,
+    private val airfieldsRepository: AirfieldsRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<FlightsListState>(FlightsListState.Initiated)
@@ -31,6 +34,9 @@ class FlightsListViewModel @Inject constructor(
     val selectedFlightIds = _selectedFlightIds.asStateFlow()
 
     val gliders: StateFlow<List<Glider>> = glidersRepository.getAllGliders()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    val airfields: StateFlow<List<Airfield>> = airfieldsRepository.getAllAirfields()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     // Kept for legacy delete/edit path

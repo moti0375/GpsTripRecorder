@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FileUpload
+import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
@@ -74,6 +75,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.dunihuliapps.myglidingassistant.R
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.HmsFormatter
 import data.model.Flight
@@ -94,6 +96,7 @@ fun FlightsListContent(
     val selectedFlightIds by viewModel.selectedFlightIds.collectAsState()
     val editingFlight by viewModel.editSelectedFlight.collectAsState()
     val gliders by viewModel.gliders.collectAsState()
+    val airfields by viewModel.airfields.collectAsState()
 
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showUploadDialog by remember { mutableStateOf(false) }
@@ -162,6 +165,7 @@ fun FlightsListContent(
         EditFlightDetailsDialog(
             flight = flight,
             gliders = gliders,
+            airfields = airfields,
             onConfirm = { updatedFlight ->
                 viewModel.mapEventToState(FlightsListEvent.UpdateFlightDetails(updatedFlight))
                 viewModel.mapEventToState(FlightsListEvent.DismissEditFlight)
@@ -382,6 +386,28 @@ private fun FlightItem(
                         )
                     }
                 }
+                if (!flight.airfield.isNullOrEmpty()) {
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(2.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Flag,
+                            contentDescription = null,
+                            modifier = Modifier.size(12.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Text(
+                            text = flight.airfield,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
                 if (!flight.glider.isNullOrEmpty()) {
                     Row(
                         modifier = Modifier.weight(1f),
@@ -455,14 +481,17 @@ private fun EmptyFlightsContent() {
 private fun EditFlightDetailsDialog(
     flight: Flight,
     gliders: List<Glider>,
+    airfields: List<Airfield>,
     onConfirm: (Flight) -> Unit,
     onDismiss: () -> Unit,
 ) {
     var name by remember(flight.id) { mutableStateOf(flight.name ?: "") }
     var selectedGliderCallsign by remember(flight.id) { mutableStateOf(flight.glider) }
+    var selectedAirfieldName by remember(flight.id) { mutableStateOf(flight.airfield) }
     var firstPilot by remember(flight.id) { mutableStateOf(flight.firstPilot ?: "") }
     var secondPilot by remember(flight.id) { mutableStateOf(flight.secondPilot ?: "") }
     var gliderDropdownExpanded by remember { mutableStateOf(false) }
+    var airfieldDropdownExpanded by remember { mutableStateOf(false) }
 
     val selectedGlider = gliders.find { it.callsign == selectedGliderCallsign }
     val isTwoSeater = selectedGlider?.seats == 2
@@ -545,6 +574,46 @@ private fun EditFlightDetailsDialog(
                     }
                 }
 
+                // Airfield picker
+                ExposedDropdownMenuBox(
+                    expanded = airfieldDropdownExpanded,
+                    onExpandedChange = { airfieldDropdownExpanded = it }
+                ) {
+                    OutlinedTextField(
+                        modifier = Modifier
+                            .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                            .fillMaxWidth(),
+                        value = selectedAirfieldName ?: "",
+                        onValueChange = {},
+                        readOnly = true,
+                        label = { Text("Airfield") },
+                        trailingIcon = {
+                            ExposedDropdownMenuDefaults.TrailingIcon(expanded = airfieldDropdownExpanded)
+                        }
+                    )
+                    ExposedDropdownMenu(
+                        expanded = airfieldDropdownExpanded,
+                        onDismissRequest = { airfieldDropdownExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("None") },
+                            onClick = {
+                                selectedAirfieldName = null
+                                airfieldDropdownExpanded = false
+                            }
+                        )
+                        airfields.forEach { airfield ->
+                            DropdownMenuItem(
+                                text = { Text(airfield.name) },
+                                onClick = {
+                                    selectedAirfieldName = airfield.name
+                                    airfieldDropdownExpanded = false
+                                }
+                            )
+                        }
+                    }
+                }
+
                 // First pilot
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
@@ -573,6 +642,7 @@ private fun EditFlightDetailsDialog(
                     flight.copy(
                         name = name.takeIf { it.isNotBlank() },
                         glider = selectedGliderCallsign,
+                        airfield = selectedAirfieldName,
                         firstPilot = firstPilot.takeIf { it.isNotBlank() },
                         secondPilot = if (isTwoSeater) secondPilot.takeIf { it.isNotBlank() } else null
                     )

@@ -2,12 +2,16 @@ package com.dunihuliapps.myglidingassistant.domain.di
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import com.dunihuliapps.myglidingassistant.data.repositories.airfields.AirfieldsRepository
+import com.dunihuliapps.myglidingassistant.data.repositories.airfields.AirfieldsRepositoryImpl
 import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepositoryImpl
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepositoryImpl
 import com.dunihuliapps.myglidingassistant.data.repositories.onboarding.OnboardingRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.onboarding.OnboardingRepositoryImpl
+import com.dunihuliapps.myglidingassistant.domain.datasources.airfields.AirfieldsLocalDatasource
+import com.dunihuliapps.myglidingassistant.domain.datasources.airfields.AirfieldsLocalDatasourceImpl
 import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasource
 import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasourceImpl
 import com.dunihuliapps.myglidingassistant.domain.datasources.gliders.GlidersLocalDatasource
@@ -46,6 +50,15 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun bindOnboardingRepository(onboardingRepositoryImpl: OnboardingRepositoryImpl): OnboardingRepository
+
+
+    @Binds
+    @Singleton
+    abstract fun bindAirfieldsLocalDatasource(airfieldsLocalDatasourceImpl: AirfieldsLocalDatasourceImpl): AirfieldsLocalDatasource
+
+    @Binds
+    @Singleton
+    abstract fun bindAirfieldsRepository(airfieldsRepositoryImpl: AirfieldsRepositoryImpl): AirfieldsRepository
 
 
     companion object{

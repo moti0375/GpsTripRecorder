@@ -24,6 +24,10 @@ import androidx.navigation.navArgument
 import com.dunihuliapps.myglidingassistant.R
 import com.dunihuliapps.myglidingassistant.utils.Utils
 import data.model.Flight
+import presentation.screens.airfields.airfields_screen.AirfieldsScreen
+import presentation.screens.airfields.airfields_screen.AirfieldsViewModel
+import presentation.screens.airfields.edit_airfield_screen.EditAirfieldScreen
+import presentation.screens.airfields.edit_airfield_screen.EditAirfieldViewModel
 import presentation.screens.flight_details_screen.FlightDetailsContent
 import presentation.screens.flight_details_screen.FlightDetailsViewModel
 import presentation.screens.flights_screen.FlightsListContent
@@ -188,6 +192,47 @@ fun AppNavHost(
         ) {
             val viewModel: EditGliderViewModel = hiltViewModel()
             EditGliderScreen(
+                viewModel = viewModel,
+                onSaved = { navController.popBackStack() },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable("airfields") {
+            val viewModel: AirfieldsViewModel = hiltViewModel()
+            AirfieldsScreen(
+                viewModel = viewModel,
+                onAddClick = { airfield ->
+                    if (airfield == null) {
+                        navController.navigate("edit_airfield")
+                    } else {
+                        val route = buildString {
+                            append("edit_airfield")
+                            append("?id=${airfield.id}")
+                            append("&name=${Uri.encode(airfield.name)}")
+                            append("&latitude=${airfield.latitude}")
+                            append("&longitude=${airfield.longitude}")
+                            append("&isHome=${airfield.isHome}")
+                        }
+                        navController.navigate(route)
+                    }
+                },
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = "edit_airfield?id={id}&name={name}&latitude={latitude}&longitude={longitude}&isHome={isHome}",
+            arguments = listOf(
+                navArgument("id")        { type = NavType.LongType;    defaultValue = 0L },
+                navArgument("name")      { type = NavType.StringType;  nullable = true; defaultValue = null },
+                navArgument("latitude")  { type = NavType.StringType;  nullable = true; defaultValue = null },
+                navArgument("longitude") { type = NavType.StringType;  nullable = true; defaultValue = null },
+                navArgument("isHome")    { type = NavType.BoolType;    defaultValue = false },
+            )
+        ) {
+            val viewModel: EditAirfieldViewModel = hiltViewModel()
+            EditAirfieldScreen(
                 viewModel = viewModel,
                 onSaved = { navController.popBackStack() },
                 onBack = { navController.popBackStack() }

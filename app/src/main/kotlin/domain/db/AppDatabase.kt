@@ -4,16 +4,20 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
+import com.dunihuliapps.myglidingassistant.domain.datasources.airfields.AirfieldsDao
 import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightDao
 import com.dunihuliapps.myglidingassistant.domain.datasources.gliders.GlidersDao
 import data.model.Flight
 
-@Database(entities = [Flight::class, Glider::class], version = 3, exportSchema = false)
+@Database(entities = [Flight::class, Glider::class, Airfield::class], version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun flightDao(): FlightDao
 
     abstract fun glidersDao(): GlidersDao
+
+    abstract fun airfieldsDao(): AirfieldsDao
 
     companion object {
         // Define migration from version 1 to 2
@@ -37,6 +41,23 @@ abstract class AppDatabase : RoomDatabase() {
             )
         """.trimIndent()
                 )
+            }
+        }
+
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                CREATE TABLE IF NOT EXISTS `airfields` (
+                `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                `name` TEXT NOT NULL,
+                `latitude` REAL NOT NULL,
+                `longitude` REAL NOT NULL,
+                `isHome` INTEGER NOT NULL DEFAULT 0
+            )
+        """.trimIndent()
+                )
+                db.execSQL("ALTER TABLE `flights` ADD COLUMN `airfield` TEXT")
             }
         }
     }

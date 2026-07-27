@@ -30,7 +30,11 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders["googleMapsApiKey"] = localProperties.getProperty("GOOGLE_MAPS_API_KEY")
+        val googleMapsApiKey = localProperties.getProperty("GOOGLE_MAPS_API_KEY")
+        manifestPlaceholders["googleMapsApiKey"] = googleMapsApiKey
+        // The Places SDK needs the key at runtime (Places.initialize), unlike the Maps SDK
+        // which only reads it from the manifest meta-data.
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"$googleMapsApiKey\"")
     }
 
     buildTypes {
@@ -53,6 +57,7 @@ android {
         viewBinding = true
         dataBinding = true
         compose = true
+        buildConfig = true
     }
 }
 
@@ -121,6 +126,10 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.play.services.location)
     implementation("com.google.android.gms:play-services-oss-licenses:17.0.1")
+
+    // Airfield location search + picker map
+    implementation(libs.places)
+    implementation(libs.maps.compose)
 
     implementation (files("libs/jdom-2.0.6.jar"))
     implementation (files("libs/jdom-2.0.6-javadoc.jar"))

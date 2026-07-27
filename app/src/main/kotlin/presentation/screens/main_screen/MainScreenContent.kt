@@ -17,6 +17,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.PlayArrow
@@ -63,6 +64,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.dunihuliapps.myglidingassistant.R
+import com.dunihuliapps.myglidingassistant.data.model.Airfield
 import com.dunihuliapps.myglidingassistant.data.model.Glider
 import presentation.composables.rememberLocaleTextDirection
 import presentation.composables.main_screen.GaugesPanel
@@ -84,9 +86,11 @@ fun MainScreenContent(
     showSaveDialog: Boolean,
     showNewFlightDialog: Boolean,
     gliders: List<Glider>,
+    airfields: List<Airfield>,
     initialFlightGlider: String?,
     initialFlightFirstPilot: String,
     initialFlightSecondPilot: String,
+    initialFlightAirfieldId: Long?,
     isLoading: Boolean,
     loadingMessage: String,
     showLowGpsSignal: Boolean,
@@ -97,11 +101,12 @@ fun MainScreenContent(
     safetyCirclesVisible: Boolean,
     onStartStopClick: () -> Unit,
     onToggleSafetyCirclesClick: () -> Unit,
-    onTakeOffConfirmed: (glider: String?, firstPilot: String?, secondPilot: String?) -> Unit,
-    onNewFlightDismiss: (glider: String?, firstPilot: String, secondPilot: String) -> Unit,
+    onTakeOffConfirmed: (glider: String?, firstPilot: String?, secondPilot: String?, airfieldId: Long?) -> Unit,
+    onNewFlightDismiss: (glider: String?, firstPilot: String, secondPilot: String, airfieldId: Long?) -> Unit,
     onFlightsClick: () -> Unit,
     onSettingsClick: () -> Unit,
     onGlidersClick: () -> Unit,
+    onAirfieldsClick: () -> Unit,
     onLicenseClick: () -> Unit,
     onMapReady: (CustomSupportMapFragment) -> Unit,
     onGaugesHeightChanged: (Int) -> Unit,
@@ -216,9 +221,11 @@ fun MainScreenContent(
     if (showNewFlightDialog) {
         NewFlightDialog(
             gliders = gliders,
+            airfields = airfields,
             initialGlider = initialFlightGlider,
             initialFirstPilot = initialFlightFirstPilot,
             initialSecondPilot = initialFlightSecondPilot,
+            initialAirfieldId = initialFlightAirfieldId,
             onConfirm = onTakeOffConfirmed,
             onDismiss = onNewFlightDismiss,
         )
@@ -249,6 +256,9 @@ fun MainScreenContent(
                     }
                     IconButton(onClick = onGlidersClick) {
                         GliderToolbarIcon()
+                    }
+                    IconButton(onClick = onAirfieldsClick) {
+                        Icon(Icons.Default.Flag, contentDescription = "Airfields")
                     }
                     IconButton(onClick = onLicenseClick) {
                         Icon(Icons.Default.Info, contentDescription = "License")
@@ -331,16 +341,23 @@ fun MainScreenContent(
 @Composable
 private fun NewFlightDialog(
     gliders: List<Glider>,
+    airfields: List<Airfield>,
     initialGlider: String?,
     initialFirstPilot: String,
     initialSecondPilot: String,
-    onConfirm: (glider: String?, firstPilot: String?, secondPilot: String?) -> Unit,
-    onDismiss: (glider: String?, firstPilot: String, secondPilot: String) -> Unit,
+    initialAirfieldId: Long?,
+    onConfirm: (glider: String?, firstPilot: String?, secondPilot: String?, airfieldId: Long?) -> Unit,
+    onDismiss: (glider: String?, firstPilot: String, secondPilot: String, airfieldId: Long?) -> Unit,
 ) {
     var selectedGliderCallsign by remember { mutableStateOf(initialGlider) }
     var firstPilot by remember { mutableStateOf(initialFirstPilot) }
     var secondPilot by remember { mutableStateOf(initialSecondPilot) }
+    // No draft yet (first time the dialog opens) defaults to the home airfield, if any.
+    var selectedAirfieldId by remember {
+        mutableStateOf(initialAirfieldId ?: airfields.find { it.isHome }?.id)
+    }
     var gliderDropdownExpanded by remember { mutableStateOf(false) }
+    var airfieldDropdownExpanded by remember { mutableStateOf(false) }
 
     val selectedGlider = gliders.find { it.callsign == selectedGliderCallsign }
     val isTwoSeater = selectedGlider?.seats == 2
@@ -348,9 +365,11 @@ private fun NewFlightDialog(
         ?.let { "${it.callsign} (${it.type})" }
         ?: selectedGliderCallsign
         ?: ""
+    val selectedAirfield = airfields.find { it.id == selectedAirfieldId }
+    val selectedAirfieldLabel = selectedAirfield?.name ?: ""
 
     AlertDialog(
-        onDismissRequest = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot) },
+        onDismissRequest = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot, selectedAirfieldId) },
         icon = {
             GliderToolbarIcon()
         },
@@ -403,6 +422,45 @@ private fun NewFlightDialog(
                     }
                 }
 
+                ExposedDropdownMenuBox(
+                    expanded = airfieldDropdownExpanded,
+                    onExpandedChange = { airfieldDropdownExpanded = it }
+                ) {
+                    OutlinedTextField(
+                        modifier = Modifier
+                            .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                            .fillMaxWidth(),
+                        value = selectedAirfieldLabel,
+                        onValueChange = {},
+                        readOnly = true,
+                        label = { Text("Airfield") },
+                        trailingIcon = {
+                            ExposedDropdownMenuDefaults.TrailingIcon(expanded = airfieldDropdownExpanded)
+                        }
+                    )
+                    ExposedDropdownMenu(
+                        expanded = airfieldDropdownExpanded,
+                        onDismissRequest = { airfieldDropdownExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("None") },
+                            onClick = {
+                                selectedAirfieldId = null
+                                airfieldDropdownExpanded = false
+                            }
+                        )
+                        airfields.forEach { airfield ->
+                            DropdownMenuItem(
+                                text = { Text(airfield.name) },
+                                onClick = {
+                                    selectedAirfieldId = airfield.id
+                                    airfieldDropdownExpanded = false
+                                }
+                            )
+                        }
+                    }
+                }
+
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = firstPilot,
@@ -428,12 +486,13 @@ private fun NewFlightDialog(
                 onConfirm(
                     selectedGliderCallsign,
                     firstPilot.takeIf { it.isNotBlank() },
-                    if (isTwoSeater) secondPilot.takeIf { it.isNotBlank() } else null
+                    if (isTwoSeater) secondPilot.takeIf { it.isNotBlank() } else null,
+                    selectedAirfieldId
                 )
             }) { Text("Take Off") }
         },
         dismissButton = {
-            TextButton(onClick = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot) }) {
+            TextButton(onClick = { onDismiss(selectedGliderCallsign, firstPilot, secondPilot, selectedAirfieldId) }) {
                 Text(stringResource(R.string.Cancel))
             }
         }

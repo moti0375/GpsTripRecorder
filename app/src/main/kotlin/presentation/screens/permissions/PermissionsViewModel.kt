@@ -1,4 +1,4 @@
-package com.dunihuliapps.myglidingassistant.presentation.screens.splash_screen
+package presentation.screens.permissions
 
 import android.Manifest
 import android.os.Build
@@ -12,10 +12,11 @@ import javax.inject.Inject
 @HiltViewModel
 class PermissionsViewModel @Inject constructor() : ViewModel() {
 
+    enum class PermissionType { LOCATION, NOTIFICATIONS, STORAGE }
+
     data class PermissionStep(
         val permission: String,
-        val title: String,
-        val message: String,
+        val type: PermissionType,
         val isMandatory: Boolean
     )
 
@@ -43,8 +44,7 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
         if (!hasLocation) {
             steps.add(PermissionStep(
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                "Location Access",
-                "This app needs location access to track and record your trips accurately.",
+                PermissionType.LOCATION,
                 true
             ))
         }
@@ -53,8 +53,7 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !hasNotifications) {
             steps.add(PermissionStep(
                 Manifest.permission.POST_NOTIFICATIONS,
-                "Notifications",
-                "We need notification access to show your recording status in the background.",
+                PermissionType.NOTIFICATIONS,
                 false
             ))
         }
@@ -63,8 +62,7 @@ class PermissionsViewModel @Inject constructor() : ViewModel() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && !hasStorage) {
             steps.add(PermissionStep(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                "Storage Access",
-                "Storage access is required to save your trip KML files.",
+                PermissionType.STORAGE,
                 false
             ))
         }

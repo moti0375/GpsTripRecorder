@@ -150,5 +150,35 @@
     <string name="title_activity_gps_trip_rec_gallery">Trip Gallery</string>
     <string name="title_activity_maps">Map</string>
 
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Welcome to Gliding Assistant</string>
+    <string name="onboarding_welcome_description">Your companion for tracking and logging every gliding flight.</string>
+    <string name="onboarding_glider_title">Set Your Glider</string>
+    <string name="onboarding_glider_description">Add your glider\'s details so every flight is logged with the right aircraft.</string>
+    <string name="onboarding_airfield_title">Set Your Airfield</string>
+    <string name="onboarding_airfield_description">Configure your home airfield to get accurate safety zones around it.</string>
+    <string name="onboarding_track_title">Track Your Flight</string>
+    <string name="onboarding_track_description">Record your route, speed, altitude and distance live on the map.</string>
+    <string name="onboarding_log_title">Log Your Flight</string>
+    <string name="onboarding_log_description">Save every flight to your logbook and review it anytime.</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+
+    <!-- Terms and Conditions -->
+    <string name="terms_title">Terms &amp; Conditions</string>
+    <string name="terms_body">This app uses your device\'s location to record and display your gliding flights. Flights, gliders and airfields you add are stored locally on your device.\n\nTo help improve app stability and accuracy, this app may collect anonymous analytics and crash reports. This does not include your location or any other personal or sensitive data.\n\nUsing this flight logger is at your own risk. The developer is not responsible for any damage to equipment or injury to persons resulting from use of this app. This app is not a substitute for looking around you during flight.\n\nMy Gliding Assistant is provided \"as is\", without warranty of any kind, and is not a substitute for official flight instruments or aviation charts. You are responsible for your own flight safety decisions.\n\nThe developer is continually working on improvements and new features for future releases.\n\nBy continuing, you acknowledge that you have read and agree to these terms.</string>
+    <string name="terms_checkbox_label">I\'ve read and agree to the Terms and Conditions</string>
+    <string name="terms_accept_button">Accept &amp; Continue</string>
+
+    <!-- Permissions -->
+    <string name="permission_location_title">Location Access</string>
+    <string name="permission_location_message">This app needs location access to track and record your trips accurately.</string>
+    <string name="permission_notifications_title">Notifications</string>
+    <string name="permission_notifications_message">We need notification access to show your recording status in the background.</string>
+    <string name="permission_storage_title">Storage Access</string>
+    <string name="permission_storage_message">Storage access is required to save your trip KML files.</string>
+    <string name="permission_allow">Allow</string>
+    <string name="permission_refuse">Refuse</string>
 
 </resources>

@@ -122,5 +122,35 @@
     <string name="unable_to_open_kml">לא ניתן לקרוא קובץ מפה או קובץ לא נתמך</string>
     <string name="title_activity_gps_trip_rec_gallery">גלריית המסלול שלי</string>
 
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">ברוכים הבאים ל-Gliding Assistant</string>
+    <string name="onboarding_welcome_description">המלווה שלך למעקב ותיעוד של כל טיסת דאייה.</string>
+    <string name="onboarding_glider_title">הגדר את הדאון שלך</string>
+    <string name="onboarding_glider_description">הוסף את פרטי הדאונים שלך כדי שכל טיסה תתועד עם כלי הטיס הנכון.</string>
+    <string name="onboarding_airfield_title">הגדר את שדה התעופה שלך</string>
+    <string name="onboarding_airfield_description">הגדירו את שדה הבית שלך לקבלת אזורי בטיחות מדויקים סביבו.</string>
+    <string name="onboarding_track_title">מעקב אחר הטיסה שלך</string>
+    <string name="onboarding_track_description">תעוד של המסלול, המהירות, הגובה והמרחק בזמן אמת על המפה.</string>
+    <string name="onboarding_log_title">תעד/י את הטיסות שלך</string>
+    <string name="onboarding_log_description">שמור/י כל טיסה ביומן הטיסות שלך וצפה/י בה בכל עת.</string>
+    <string name="onboarding_skip">דלג</string>
+    <string name="onboarding_next">הבא</string>
+    <string name="onboarding_get_started">הבה נתחיל</string>
+
+    <!-- Terms and Conditions -->
+    <string name="terms_title">תנאים והגבלות</string>
+    <string name="terms_body">אפליקציה זו משתמשת במיקום המכשיר שלך כדי לתעד ולהציג את טיסות הדאייה שלך. טיסות, דאונים ושדות תעופה שתוסיף נשמרים באופן מקומי במכשיר שלך.\n\nכדי לסייע בשיפור היציבות והדיוק של האפליקציה, ייתכן שהאפליקציה תאסוף נתוני שימוש וקריסות באופן אנונימי. איסוף זה אינו כולל את מיקומך או כל מידע אישי או רגיש אחר.\n\nהשימוש ביומן הטיסות הוא באחריותך הבלעדית. המפתח אינו אחראי לכל נזק לציוד או פגיעה באנשים כתוצאה משימוש באפליקציה. אפליקציה זו אינה תחליף להסתכלות מסביב בזמן הטיסה.\n\nMy Gliding Assistant מסופקת \"כמות שהיא\", ללא כל אחריות, ואינה תחליף למכשירי טיסה רשמיים או מפות תעופה. האחריות על החלטות הבטיחות בטיסה שלך היא שלך בלבד.\n\nהמפתח פועל באופן שוטף לשיפור האפליקציה ולהוספת תכונות חדשות בגרסאות עתידיות.\n\nבהמשך השימוש, הנך מאשר כי קראת והנך מסכים לתנאים אלה.</string>
+    <string name="terms_checkbox_label">קראתי ואני מסכים לתנאים וההגבלות</string>
+    <string name="terms_accept_button">אשר והמשך</string>
+
+    <!-- Permissions -->
+    <string name="permission_location_title">גישה למיקום</string>
+    <string name="permission_location_message">האפליקציה זקוקה לגישה למיקום כדי לעקוב אחר הטיסות שלך ולתעד אותן בדיוק.</string>
+    <string name="permission_notifications_title">התראות</string>
+    <string name="permission_notifications_message">אנו זקוקים לגישה להתראות כדי להציג את סטטוס ההקלטה שלך ברקע.</string>
+    <string name="permission_storage_title">גישה לאחסון</string>
+    <string name="permission_storage_message">יש צורך בגישה לאחסון כדי לשמור את קבצי ה-KML של הטיסות שלך.</string>
+    <string name="permission_allow">אשר</string>
+    <string name="permission_refuse">סרב</string>
 
 </resources>

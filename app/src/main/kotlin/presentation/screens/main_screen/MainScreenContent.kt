@@ -49,6 +49,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -57,11 +58,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.dunihuliapps.myglidingassistant.R
 import com.dunihuliapps.myglidingassistant.data.model.Glider
+import presentation.composables.rememberLocaleTextDirection
 import presentation.composables.main_screen.GaugesPanel
 import presentation.composables.main_screen.GliderToolbarIcon
 import presentation.composables.main_screen.MainMapContainer
@@ -353,6 +356,8 @@ private fun NewFlightDialog(
         },
         title = { Text("New Flight") },
         text = {
+            val textDirection = rememberLocaleTextDirection()
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
             Column(
                 modifier = Modifier.verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -415,6 +420,7 @@ private fun NewFlightDialog(
                         label = { Text("Second pilot") }
                     )
                 }
+            }
             }
         },
         confirmButton = {

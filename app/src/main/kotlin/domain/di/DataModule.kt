@@ -6,6 +6,8 @@ import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepo
 import com.dunihuliapps.myglidingassistant.data.repositories.flights.FlightsRepositoryImpl
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepository
 import com.dunihuliapps.myglidingassistant.data.repositories.gliders.GlidersRepositoryImpl
+import com.dunihuliapps.myglidingassistant.data.repositories.onboarding.OnboardingRepository
+import com.dunihuliapps.myglidingassistant.data.repositories.onboarding.OnboardingRepositoryImpl
 import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasource
 import com.dunihuliapps.myglidingassistant.domain.datasources.flights.FlightsLocalDatasourceImpl
 import com.dunihuliapps.myglidingassistant.domain.datasources.gliders.GlidersLocalDatasource
@@ -39,6 +41,11 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun bindGlidersRepository(glidersRepositoryImpl: GlidersRepositoryImpl): GlidersRepository
+
+
+    @Binds
+    @Singleton
+    abstract fun bindOnboardingRepository(onboardingRepositoryImpl: OnboardingRepositoryImpl): OnboardingRepository
 
 
     companion object{

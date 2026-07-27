@@ -50,6 +50,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -65,6 +66,7 @@ import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -75,6 +77,7 @@ import com.dunihuliapps.myglidingassistant.R
 import com.dunihuliapps.myglidingassistant.data.model.Glider
 import com.dunihuliapps.myglidingassistant.presentation.units_formatters.HmsFormatter
 import data.model.Flight
+import presentation.composables.rememberLocaleTextDirection
 import java.io.File
 
 private const val TRIP_NAME_MAX_LENGTH = 25
@@ -478,6 +481,8 @@ private fun EditFlightDetailsDialog(
         },
         title = { Text("Edit flight details") },
         text = {
+            val textDirection = rememberLocaleTextDirection()
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
             Column(
                 modifier = Modifier.verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -559,6 +564,7 @@ private fun EditFlightDetailsDialog(
                         label = { Text("Second pilot") }
                     )
                 }
+            }
             }
         },
         confirmButton = {

@@ -20,6 +20,7 @@ import androidx.compose.animation.scaleOut
 import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Stop
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -251,17 +253,36 @@ fun MainScreenContent(
                     IconButton(onClick = onFlightsClick) {
                         Icon(Icons.Default.Map, contentDescription = "Flights")
                     }
-                    IconButton(onClick = onSettingsClick) {
-                        Icon(Icons.Default.Settings, contentDescription = "Settings")
-                    }
                     IconButton(onClick = onGlidersClick) {
                         GliderToolbarIcon()
                     }
                     IconButton(onClick = onAirfieldsClick) {
                         Icon(Icons.Default.Flag, contentDescription = "Airfields")
                     }
-                    IconButton(onClick = onLicenseClick) {
-                        Icon(Icons.Default.Info, contentDescription = "License")
+                    var overflowMenuExpanded by remember { mutableStateOf(false) }
+                    IconButton(onClick = { overflowMenuExpanded = true }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = "More")
+                    }
+                    DropdownMenu(
+                        expanded = overflowMenuExpanded,
+                        onDismissRequest = { overflowMenuExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Settings") },
+                            leadingIcon = { Icon(Icons.Default.Settings, contentDescription = null) },
+                            onClick = {
+                                overflowMenuExpanded = false
+                                onSettingsClick()
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("License") },
+                            leadingIcon = { Icon(Icons.Default.Info, contentDescription = null) },
+                            onClick = {
+                                overflowMenuExpanded = false
+                                onLicenseClick()
+                            }
+                        )
                     }
                 }
             )

@@ -10,3 +10,6 @@ app/build/
 app/src/main/res/values-v17/
 app/google-services.json
 app_local.properties
+/keystore/
+*.jks
+*.keystore

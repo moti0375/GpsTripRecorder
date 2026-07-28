@@ -11,11 +11,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -30,13 +38,53 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.dunihuliapps.myglidingassistant.R
 import presentation.composables.rememberLocaleTextDirection
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TermsAndConditionsScreen(
     viewModel: TermsViewModel = hiltViewModel(),
-    onAccepted: () -> Unit,
+    onAccepted: () -> Unit = {},
+    readOnly: Boolean = false,
+    onBack: () -> Unit = {},
 ) {
-    val isChecked by viewModel.isChecked.collectAsState()
     val textDirection = rememberLocaleTextDirection()
+
+    if (readOnly) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                            Text(stringResource(R.string.terms_title))
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surface
+                    )
+                )
+            }
+        ) { innerPadding ->
+            CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
+                Text(
+                    text = stringResource(R.string.terms_body),
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Start,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .padding(24.dp)
+                        .verticalScroll(rememberScrollState())
+                )
+            }
+        }
+        return
+    }
+
+    val isChecked by viewModel.isChecked.collectAsState()
 
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(

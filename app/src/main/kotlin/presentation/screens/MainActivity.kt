@@ -183,6 +183,7 @@ class MainActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
                         onGlidersClick = { navController.navigate("gliders") },
                         onAirfieldsClick = { navController.navigate("airfields") },
                         onLicenseClick = { navController.navigate("google_maps_license") },
+                        onTermsClick = { navController.navigate("terms_view") },
                         onMapReady = { fragment -> onFragmentReady(fragment) },
                         onGaugesHeightChanged = { px ->
                             gaugesHeightPx = px

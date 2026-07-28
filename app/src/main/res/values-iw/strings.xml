@@ -157,6 +157,7 @@
     <string name="flights_list_title">לוח הטיסות שלי</string>
     <string name="flights_selected_count">נבחרו %1$d</string>
     <string name="edit_flight_details_title">עריכת פרטי טיסה</string>
+    <string name="empty_flights_hint">אין טיסות עדיין</string>
 
     <!-- New Flight dialog -->
     <string name="new_flight_title">טיסה חדשה</string>
@@ -170,9 +171,11 @@
 
     <!-- Airfields list -->
     <string name="my_airfields_title">המנחתים שלי</string>
+    <string name="empty_airfields_hint">אין מנחתים עדיין</string>
 
     <!-- Gliders list -->
     <string name="my_gliders_title">הדאונים שלי</string>
+    <string name="empty_gliders_hint">אין דאונים עדיין</string>
 
     <!-- Google Maps License -->
     <string name="google_maps_license_title">רישיון Google Maps</string>

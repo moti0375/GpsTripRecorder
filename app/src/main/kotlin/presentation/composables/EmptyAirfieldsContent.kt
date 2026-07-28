@@ -13,9 +13,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.dunihuliapps.myglidingassistant.R
 
 @Composable
 fun EmptyAirfieldsContent(onClick: () -> Unit) {
@@ -33,11 +37,13 @@ fun EmptyAirfieldsContent(onClick: () -> Unit) {
                 tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
             )
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = "No airfields added yet",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                Text(
+                    text = stringResource(R.string.empty_airfields_hint),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+                )
+            }
         }
     }
 }

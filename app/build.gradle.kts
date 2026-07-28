@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.oss.licenses)
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics)
     kotlin("kapt") // Keep kapt for Hilt for now
@@ -125,7 +124,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.play.services.maps)
     implementation(libs.play.services.location)
-    implementation("com.google.android.gms:play-services-oss-licenses:17.0.1")
 
     // Airfield location search + picker map
     implementation(libs.places)

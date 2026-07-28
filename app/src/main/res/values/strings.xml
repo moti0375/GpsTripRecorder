@@ -204,7 +204,6 @@
 
     <!-- Google Maps License -->
     <string name="google_maps_license_title">Google Maps License</string>
-    <string name="google_maps_license_body">This app uses the Google Maps Platform, including the Maps SDK for Android and Places SDK for Android, to display maps and location data.\n\nUse of Google Maps Platform is subject to the Google Maps Platform Terms of Service (cloud.google.com/maps-platform/terms) and the Google Privacy Policy (policies.google.com/privacy).\n\nMap data, imagery and location search results are provided by Google and its data providers.\n\nThis app also uses open source software components. Tap the button below to view the licenses of these components.</string>
-    <string name="view_open_source_licenses_button">View Open Source Licenses</string>
+    <string name="google_maps_license_body">This app uses the Google Maps Platform, including the Maps SDK for Android and Places SDK for Android, to display maps and location data.\n\nUse of Google Maps Platform is subject to the Google Maps Platform Terms of Service (cloud.google.com/maps-platform/terms) and the Google Privacy Policy (policies.google.com/privacy).\n\nMap data, imagery and location search results are provided by Google and its data providers.</string>
 
 </resources>

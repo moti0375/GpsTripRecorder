@@ -2,14 +2,11 @@ package presentation.screens.license_screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -31,7 +28,6 @@ import presentation.composables.rememberLocaleTextDirection
 @Composable
 fun GoogleMapsLicenseScreen(
     onBack: () -> Unit,
-    onViewOpenSourceLicenses: () -> Unit,
 ) {
     val textDirection = rememberLocaleTextDirection()
 
@@ -64,21 +60,8 @@ fun GoogleMapsLicenseScreen(
                 Text(
                     text = stringResource(R.string.google_maps_license_body),
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier
-                        .weight(1f)
-                        .verticalScroll(rememberScrollState())
+                    modifier = Modifier.verticalScroll(rememberScrollState())
                 )
-            }
-            Button(
-                onClick = onViewOpenSourceLicenses,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-                    .navigationBarsPadding()
-            ) {
-                CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
-                    Text(stringResource(R.string.view_open_source_licenses_button))
-                }
             }
         }
     }

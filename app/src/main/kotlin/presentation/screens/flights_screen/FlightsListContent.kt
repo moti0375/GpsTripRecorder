@@ -475,11 +475,13 @@ private fun EmptyFlightsContent() {
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = "Nothing Here",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
-            )
+            CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                Text(
+                    text = stringResource(R.string.empty_flights_hint),
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+                )
+            }
         }
     }
 }

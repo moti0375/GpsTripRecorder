@@ -185,6 +185,7 @@
     <string name="flights_list_title">Recorded Flights</string>
     <string name="flights_selected_count">Selected %1$d</string>
     <string name="edit_flight_details_title">Edit flight details</string>
+    <string name="empty_flights_hint">Nothing Here</string>
 
     <!-- New Flight dialog -->
     <string name="new_flight_title">New Flight</string>
@@ -198,9 +199,11 @@
 
     <!-- Airfields list -->
     <string name="my_airfields_title">My Airfields</string>
+    <string name="empty_airfields_hint">No airfields added yet</string>
 
     <!-- Gliders list -->
     <string name="my_gliders_title">My Gliders</string>
+    <string name="empty_gliders_hint">No gliders added yet</string>
 
     <!-- Google Maps License -->
     <string name="google_maps_license_title">Google Maps License</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">מקליט GPS</string>
+    <string name="app_name">יומן הדאיה שלי</string>
     <string name="action_settings">הגדרות</string>
     <string name="Close">סגור</string>
     <string name="NewTrip">הקלטה חדשה</string>

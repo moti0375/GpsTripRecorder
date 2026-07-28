@@ -87,6 +87,13 @@ fun AppNavHost(
             )
         }
 
+        composable("terms_view") {
+            TermsAndConditionsScreen(
+                readOnly = true,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
         composable(
             "permissions",
             enterTransition = { EnterTransition.None },

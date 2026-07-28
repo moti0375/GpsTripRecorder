@@ -17,6 +17,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Map
@@ -110,6 +111,7 @@ fun MainScreenContent(
     onGlidersClick: () -> Unit,
     onAirfieldsClick: () -> Unit,
     onLicenseClick: () -> Unit,
+    onTermsClick: () -> Unit,
     onMapReady: (CustomSupportMapFragment) -> Unit,
     onGaugesHeightChanged: (Int) -> Unit,
     onAltitudeHeightChanged: (Int) -> Unit,
@@ -289,6 +291,18 @@ fun MainScreenContent(
                             onClick = {
                                 overflowMenuExpanded = false
                                 onLicenseClick()
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = {
+                                CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                                    Text(stringResource(R.string.terms_title))
+                                }
+                            },
+                            leadingIcon = { Icon(Icons.Default.Description, contentDescription = null) },
+                            onClick = {
+                                overflowMenuExpanded = false
+                                onTermsClick()
                             }
                         )
                     }

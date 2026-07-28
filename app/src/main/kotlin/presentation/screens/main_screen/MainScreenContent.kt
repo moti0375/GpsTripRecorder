@@ -268,7 +268,11 @@ fun MainScreenContent(
                         onDismissRequest = { overflowMenuExpanded = false }
                     ) {
                         DropdownMenuItem(
-                            text = { Text("Settings") },
+                            text = {
+                                CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                                    Text(stringResource(R.string.AppSettings))
+                                }
+                            },
                             leadingIcon = { Icon(Icons.Default.Settings, contentDescription = null) },
                             onClick = {
                                 overflowMenuExpanded = false
@@ -276,7 +280,11 @@ fun MainScreenContent(
                             }
                         )
                         DropdownMenuItem(
-                            text = { Text("License") },
+                            text = {
+                                CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
+                                    Text(stringResource(R.string.google_maps_license_title))
+                                }
+                            },
                             leadingIcon = { Icon(Icons.Default.Info, contentDescription = null) },
                             onClick = {
                                 overflowMenuExpanded = false

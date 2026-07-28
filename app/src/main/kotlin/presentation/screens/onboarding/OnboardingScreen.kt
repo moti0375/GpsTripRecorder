@@ -145,7 +145,7 @@ private fun OnboardingPageContent(page: OnboardingPage) {
             Spacer(modifier = Modifier.height(32.dp))
             CompositionLocalProvider(LocalLayoutDirection provides rememberLocaleTextDirection()) {
                 Text(
-                    text = stringResource(page.titleRes),
+                    text = stringResource(page.titleRes, stringResource(R.string.app_name)),
                     style = MaterialTheme.typography.headlineSmall,
                     textAlign = TextAlign.Center
                 )

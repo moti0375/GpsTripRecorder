@@ -70,7 +70,7 @@ fun TermsAndConditionsScreen(
         ) { innerPadding ->
             CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
                 Text(
-                    text = stringResource(R.string.terms_body),
+                    text = stringResource(R.string.terms_body, stringResource(R.string.app_name)),
                     style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Start,
                     modifier = Modifier
@@ -104,7 +104,7 @@ fun TermsAndConditionsScreen(
             Spacer(modifier = Modifier.height(16.dp))
             CompositionLocalProvider(LocalLayoutDirection provides textDirection) {
                 Text(
-                    text = stringResource(R.string.terms_body),
+                    text = stringResource(R.string.terms_body, stringResource(R.string.app_name)),
                     style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Start,
                     modifier = Modifier

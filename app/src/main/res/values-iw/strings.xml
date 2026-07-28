@@ -174,4 +174,9 @@
     <!-- Gliders list -->
     <string name="my_gliders_title">הדאונים שלי</string>
 
+    <!-- Google Maps License -->
+    <string name="google_maps_license_title">רישיון Google Maps</string>
+    <string name="google_maps_license_body">אפליקציה זו משתמשת ב-Google Maps Platform, כולל Maps SDK for Android ו-Places SDK for Android, כדי להציג מפות ונתוני מיקום.\n\nהשימוש ב-Google Maps Platform כפוף לתנאי השימוש של Google Maps Platform (cloud.google.com/maps-platform/terms) ולמדיניות הפרטיות של Google (policies.google.com/privacy).\n\nנתוני המפה, התמונות ותוצאות חיפוש המיקום מסופקים על ידי Google וספקי הנתונים שלה.\n\nאפליקציה זו משתמשת גם ברכיבי תוכנה בקוד פתוח. הקש על הכפתור למטה כדי לצפות ברישיונות של רכיבים אלה.</string>
+    <string name="view_open_source_licenses_button">צפה ברישיונות קוד פתוח</string>
+
 </resources>

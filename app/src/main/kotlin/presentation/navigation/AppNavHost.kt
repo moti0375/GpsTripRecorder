@@ -23,6 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.dunihuliapps.myglidingassistant.R
 import com.dunihuliapps.myglidingassistant.utils.Utils
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import data.model.Flight
 import presentation.screens.airfields.airfields_screen.AirfieldsScreen
 import presentation.screens.airfields.airfields_screen.AirfieldsViewModel
@@ -36,6 +37,7 @@ import presentation.screens.gliders.edit_glider_screen.EditGliderScreen
 import presentation.screens.gliders.edit_glider_screen.EditGliderViewModel
 import presentation.screens.gliders.gliders_screen.GlidersScreen
 import presentation.screens.gliders.gliders_screen.GlidersViewModel
+import presentation.screens.license_screen.GoogleMapsLicenseScreen
 import presentation.screens.onboarding.OnboardingScreen
 import presentation.screens.onboarding.OnboardingViewModel
 import presentation.screens.permissions.PermissionsScreen
@@ -150,6 +152,15 @@ fun AppNavHost(
             SettingsContent(
                 viewModel = viewModel,
                 onNavigateUp = { navController.popBackStack() }
+            )
+        }
+
+        composable("google_maps_license") {
+            GoogleMapsLicenseScreen(
+                onBack = { navController.popBackStack() },
+                onViewOpenSourceLicenses = {
+                    context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+                }
             )
         }
 
